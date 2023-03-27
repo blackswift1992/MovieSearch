@@ -13,6 +13,7 @@
 		492BC26E29D2062700693157 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 492BC26C29D2062700693157 /* Main.storyboard */; };
 		492BC27029D2062900693157 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 492BC26F29D2062900693157 /* Assets.xcassets */; };
 		492BC27329D2062900693157 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 492BC27129D2062900693157 /* LaunchScreen.storyboard */; };
+		49FBBAF429D2417900BDDA62 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49FBBAF329D2417900BDDA62 /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		492BC26F29D2062900693157 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		492BC27229D2062900693157 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		492BC27429D2062900693157 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49FBBAF329D2417900BDDA62 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				492BC26F29D2062900693157 /* Assets.xcassets */,
 				492BC27129D2062900693157 /* LaunchScreen.storyboard */,
 				492BC27429D2062900693157 /* Info.plist */,
+				49FBBAF329D2417900BDDA62 /* Colors.xcassets */,
 			);
 			path = MovieSearch;
 			sourceTree = "<group>";
@@ -126,6 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				492BC27329D2062900693157 /* LaunchScreen.storyboard in Resources */,
+				49FBBAF429D2417900BDDA62 /* Colors.xcassets in Resources */,
 				492BC27029D2062900693157 /* Assets.xcassets in Resources */,
 				492BC26E29D2062700693157 /* Main.storyboard in Resources */,
 			);
