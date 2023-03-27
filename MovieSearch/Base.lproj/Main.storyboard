@@ -144,9 +144,6 @@
                                         <state key="normal" title="Sign Up">
                                             <color key="titleColor" name="BrandMint"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="IHg-US-cgu" kind="show" id="0JC-sQ-qCO"/>
-                                        </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield" translatesAutoresizingMaskIntoConstraints="NO" id="vi3-Xw-wlI">
                                         <rect key="frame" x="0.0" y="20" width="414" height="137"/>
@@ -194,6 +191,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ov2-0t-GHI"/>
+                    <connections>
+                        <segue destination="IHg-US-cgu" kind="show" identifier="SignUpToMainScreens" id="07N-bs-4VJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uRY-dy-8dj" sceneMemberID="firstResponder"/>
             </objects>
@@ -289,9 +289,6 @@
                                         <state key="normal" title="Log In">
                                             <color key="titleColor" name="BrandLightBlue"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="IHg-US-cgu" kind="show" id="6lp-el-Y4X"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -325,6 +322,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MQq-eD-JP1"/>
+                    <connections>
+                        <segue destination="IHg-US-cgu" kind="show" identifier="LogInToMainScreens" id="1gT-xV-JNz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C0r-k8-rMt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -361,7 +361,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="0JC-sQ-qCO"/>
+        <segue reference="07N-bs-4VJ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="textfield" width="298" height="93"/>
