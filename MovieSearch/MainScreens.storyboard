@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Favorite-->
+        <!--Вибране-->
         <scene sceneID="CEJ-ys-chE">
             <objects>
                 <viewController id="sYr-ys-fNm" sceneMemberID="viewController">
@@ -21,13 +21,13 @@
                         <viewLayoutGuide key="safeArea" id="7dZ-dl-cCA"/>
                         <color key="backgroundColor" red="0.76142485500000001" green="1" blue="0.95914973699999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favorite" image="heart" selectedImage="heart" catalog="system" id="Q5S-Kq-cXs"/>
+                    <tabBarItem key="tabBarItem" title="Вибране" image="heart" selectedImage="heart" catalog="system" id="Q5S-Kq-cXs"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pkp-bE-uqw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2670" y="2257"/>
         </scene>
-        <!--Info-->
+        <!--Профіль-->
         <scene sceneID="Z4k-A5-e8R">
             <objects>
                 <viewController id="m5j-BS-VG0" sceneMemberID="viewController">
@@ -37,13 +37,13 @@
                         <viewLayoutGuide key="safeArea" id="Rvs-fC-WFU"/>
                         <color key="backgroundColor" red="0.97822491700000003" green="0.80280469649999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Info" image="person" catalog="system" selectedImage="person" id="lYz-Ci-Esq"/>
+                    <tabBarItem key="tabBarItem" title="Профіль" image="person" catalog="system" selectedImage="person" id="lYz-Ci-Esq"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sll-qm-tfS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3732" y="2257"/>
         </scene>
-        <!--Movies-->
+        <!--Головна-->
         <scene sceneID="g13-y6-Xh1">
             <objects>
                 <viewController id="sX4-NJ-ah0" sceneMemberID="viewController">
@@ -53,7 +53,7 @@
                         <viewLayoutGuide key="safeArea" id="7BG-ST-rZs"/>
                         <color key="backgroundColor" red="1" green="1" blue="0.75662772150000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Movies" image="list.and.film" catalog="system" id="J8u-iN-b94">
+                    <tabBarItem key="tabBarItem" title="Головна" image="list.and.film" catalog="system" id="J8u-iN-b94">
                         <imageReference key="selectedImage" image="list.and.film" catalog="system" symbolScale="default"/>
                     </tabBarItem>
                 </viewController>
