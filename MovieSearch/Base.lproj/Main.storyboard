@@ -1,91 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ebx-KI-tpw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UnJ-PC-p4g">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Favorite-->
-        <scene sceneID="JR4-tg-RvL">
-            <objects>
-                <viewController id="zfc-Fs-q8h" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hOB-xg-i1f">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="rt7-Zb-DsC"/>
-                        <color key="backgroundColor" red="0.76142485499699797" green="1" blue="0.95914973697880646" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Favorite" image="heart" selectedImage="heart" catalog="system" id="I1x-5l-H8c"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7ox-qp-wzD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2670" y="2257"/>
-        </scene>
-        <!--Info-->
-        <scene sceneID="ZHz-AG-R2q">
-            <objects>
-                <viewController id="wjw-tY-TsE" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="T3n-Q8-H9k">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="06e-5w-qcu"/>
-                        <color key="backgroundColor" red="0.97822491704332915" green="0.80280469648865227" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Info" image="person" catalog="system" selectedImage="person" id="R7P-5y-mjX"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="c8S-0o-vs4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3732" y="2257"/>
-        </scene>
-        <!--Movies-->
-        <scene sceneID="tl5-0D-zen">
-            <objects>
-                <viewController id="3Mc-ih-jda" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="BBw-Uh-Kfb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="j5u-vl-eWA"/>
-                        <color key="backgroundColor" red="1" green="1" blue="0.75662772150000002" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Movies" image="list.and.film" catalog="system" id="18s-H1-N6x">
-                        <imageReference key="selectedImage" image="list.and.film" catalog="system" symbolScale="default"/>
-                    </tabBarItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LDp-Os-V90" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1599" y="2257"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="XQQ-8G-JIB">
-            <objects>
-                <tabBarController id="ebx-KI-tpw" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="1ka-HD-vda">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" systemColor="systemGray4Color"/>
-                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="selectedImageTintColor" name="AccentColor"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="3Mc-ih-jda" kind="relationship" relationship="viewControllers" id="IMB-mg-gqi"/>
-                        <segue destination="zfc-Fs-q8h" kind="relationship" relationship="viewControllers" id="o2d-HN-Ng6"/>
-                        <segue destination="wjw-tY-TsE" kind="relationship" relationship="viewControllers" id="dNR-cu-Fxb"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="J3a-cq-rj8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2671" y="1531"/>
-        </scene>
         <!--Welcome View Controller-->
         <scene sceneID="KvL-fI-u0n">
             <objects>
-                <viewController storyboardIdentifier="WelcomeViewController" id="NVm-bN-JJN" customClass="WelcomeViewController" customModule="GroupChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeViewController" id="NVm-bN-JJN" customClass="WelcomeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="btu-Cz-hZh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -146,20 +73,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="P71-0V-FRN"/>
-                    <connections>
-                        <outlet property="logInButton" destination="3Jc-1Q-XaY" id="6ye-tE-7RW"/>
-                        <outlet property="registerButton" destination="77d-7G-8RU" id="V4C-4p-kF2"/>
-                        <outlet property="titleLabel" destination="N3D-uE-hG3" id="6Bq-YT-582"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BLI-VT-IDY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="209" y="481"/>
+            <point key="canvasLocation" x="1004" y="809"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="vVK-2H-vMf">
             <objects>
-                <viewController id="hET-yo-gsG" customClass="SignUpViewController" customModule="GroupChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hET-yo-gsG" customClass="SignUpViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="To3-49-xSw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -223,7 +145,7 @@
                                             <color key="titleColor" name="BrandMint"/>
                                         </state>
                                         <connections>
-                                            <action selector="signUpButtonPressed:" destination="hET-yo-gsG" eventType="touchUpInside" id="v6r-Vc-VeV"/>
+                                            <segue destination="IHg-US-cgu" kind="show" id="0JC-sQ-qCO"/>
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield" translatesAutoresizingMaskIntoConstraints="NO" id="vi3-Xw-wlI">
@@ -272,22 +194,25 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ov2-0t-GHI"/>
-                    <connections>
-                        <outlet property="emailTextfield" destination="Z4w-nB-zf5" id="bzB-ku-YMX"/>
-                        <outlet property="errorLabel" destination="9U2-3h-XfO" id="OUF-sF-zBX"/>
-                        <outlet property="passwordTextfield" destination="gJc-pC-0Dg" id="xNT-Lx-vIU"/>
-                        <outlet property="progressIndicator" destination="998-jO-PF9" id="0R8-fw-GFF"/>
-                        <outlet property="signUpButton" destination="PiX-HI-TXj" id="n76-1p-axZ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uRY-dy-8dj" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1229" y="850"/>
+            <point key="canvasLocation" x="1777" y="1221"/>
+        </scene>
+        <!--MainScreens-->
+        <scene sceneID="BTM-4d-2lC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MainScreens" id="IHg-US-cgu" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Ciz-ki-HCf"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lWU-ny-ChO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2329" y="829"/>
         </scene>
         <!--Log In View Controller-->
         <scene sceneID="6xA-P4-33N">
             <objects>
-                <viewController id="fRY-Th-GhO" customClass="LogInViewController" customModule="GroupChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fRY-Th-GhO" customClass="LogInViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LTd-dW-Hsx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -358,14 +283,14 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVg-GB-L4Q">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVg-GB-L4Q">
                                         <rect key="frame" x="140" y="124" width="134" height="53"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="30"/>
                                         <state key="normal" title="Log In">
                                             <color key="titleColor" name="BrandLightBlue"/>
                                         </state>
                                         <connections>
-                                            <action selector="logInButtonPressed:" destination="fRY-Th-GhO" eventType="touchUpInside" id="2OO-AH-Yc2"/>
+                                            <segue destination="IHg-US-cgu" kind="show" id="6lp-el-Y4X"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -400,17 +325,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MQq-eD-JP1"/>
-                    <connections>
-                        <outlet property="emailTextfield" destination="c3z-fh-WmL" id="MXv-3s-N06"/>
-                        <outlet property="errorLabel" destination="apM-M3-FPd" id="Paq-vg-xlN"/>
-                        <outlet property="logInButton" destination="pVg-GB-L4Q" id="N8E-cS-dZP"/>
-                        <outlet property="passwordTextfield" destination="5jI-N7-7mi" id="At2-wf-QFy"/>
-                        <outlet property="progressIndicator" destination="y78-Fm-zgQ" id="s4A-1M-91F"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C0r-k8-rMt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1229" y="121"/>
+            <point key="canvasLocation" x="1777" y="412"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OZa-R8-QaD">
@@ -439,18 +357,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WLB-dJ-V1s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-630" y="481"/>
+            <point key="canvasLocation" x="165" y="809"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="0JC-sQ-qCO"/>
+    </inferredMetricsTieBreakers>
     <resources>
-        <image name="heart" catalog="system" width="128" height="107"/>
-        <image name="heart" width="128" height="128"/>
-        <image name="list.and.film" catalog="system" width="128" height="85"/>
-        <image name="person" catalog="system" width="128" height="121"/>
         <image name="textfield" width="298" height="93"/>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="BrandDarkGray">
             <color red="0.25" green="0.27599999308586121" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
@@ -472,8 +386,5 @@
         <namedColor name="BrandRed">
             <color red="0.77899998426437378" green="0.22800000011920929" blue="0.20600000023841858" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>
