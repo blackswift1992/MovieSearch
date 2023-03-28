@@ -12,7 +12,7 @@
         <!--Welcome View Controller-->
         <scene sceneID="KvL-fI-u0n">
             <objects>
-                <viewController storyboardIdentifier="WelcomeViewController" id="NVm-bN-JJN" customClass="WelcomeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeViewController" id="NVm-bN-JJN" customClass="WelcomeViewController" customModule="MovieSearch" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="btu-Cz-hZh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,7 +22,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="JSI-S7-D95"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="53"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="40"/>
                                 <color key="textColor" name="BrandLightMint"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -73,6 +73,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="P71-0V-FRN"/>
+                    <connections>
+                        <outlet property="logInButton" destination="3Jc-1Q-XaY" id="GMs-3D-Cxq"/>
+                        <outlet property="registerButton" destination="77d-7G-8RU" id="MdC-W0-Qh0"/>
+                        <outlet property="titleLabel" destination="N3D-uE-hG3" id="l91-N0-poF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BLI-VT-IDY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -283,7 +288,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVg-GB-L4Q">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVg-GB-L4Q">
                                         <rect key="frame" x="140" y="124" width="134" height="53"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="30"/>
                                         <state key="normal" title="Log In">
@@ -360,6 +365,9 @@
             <point key="canvasLocation" x="165" y="809"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="N3D-uE-hG3"/>
+    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="07N-bs-4VJ"/>
     </inferredMetricsTieBreakers>
