@@ -9,8 +9,8 @@ struct K {
     static let appName = "MovieSearch🔎"
     
     
-//    struct Segue {
-//        static let signUpToNewUserData = "SignUpToNewUserData"
+    struct Segue {
+        static let signUpToMainScreens = "SignUpToMainScreens"
 //
 //        static let logInToChat = "LogInToChat"
 //        static let logInToNewUserData = "LogInToNewUserData"
@@ -24,7 +24,7 @@ struct K {
 //        static let chatToUserMenu = "ChatToUserMenu"
 //
 //        static let userMenuToDeleteAccountWarning = "UserMenuToDeleteAccountWarning"
-//    }
+    }
 //
 //
 //    struct FStore {
@@ -62,9 +62,9 @@ struct K {
 //    }
 //
 //
-//    struct Case {
+    struct Case {
 //        static let no = "no"
 //        static let yes = "yes"
-//        static let emptyString = ""
-//    }
+        static let emptyString = ""
+    }
 }

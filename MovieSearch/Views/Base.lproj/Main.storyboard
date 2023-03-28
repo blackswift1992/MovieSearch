@@ -86,7 +86,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="vVK-2H-vMf">
             <objects>
-                <viewController id="hET-yo-gsG" customClass="SignUpViewController" sceneMemberID="viewController">
+                <viewController id="hET-yo-gsG" customClass="SignUpViewController" customModule="MovieSearch" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="To3-49-xSw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -149,6 +149,9 @@
                                         <state key="normal" title="Sign Up">
                                             <color key="titleColor" name="BrandMint"/>
                                         </state>
+                                        <connections>
+                                            <action selector="signUpButtonPressed:" destination="hET-yo-gsG" eventType="touchUpInside" id="OV7-GE-pM5"/>
+                                        </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield" translatesAutoresizingMaskIntoConstraints="NO" id="vi3-Xw-wlI">
                                         <rect key="frame" x="0.0" y="20" width="414" height="137"/>
@@ -197,6 +200,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="Ov2-0t-GHI"/>
                     <connections>
+                        <outlet property="emailTextfield" destination="Z4w-nB-zf5" id="97o-Z6-C3s"/>
+                        <outlet property="errorLabel" destination="9U2-3h-XfO" id="i0j-UL-tJI"/>
+                        <outlet property="passwordTextfield" destination="gJc-pC-0Dg" id="Zfq-fQ-RNo"/>
+                        <outlet property="progressIndicator" destination="998-jO-PF9" id="OwK-Or-EVb"/>
+                        <outlet property="signUpButton" destination="PiX-HI-TXj" id="0JM-Gi-V8U"/>
                         <segue destination="IHg-US-cgu" kind="show" identifier="SignUpToMainScreens" id="07N-bs-4VJ"/>
                     </connections>
                 </viewController>
