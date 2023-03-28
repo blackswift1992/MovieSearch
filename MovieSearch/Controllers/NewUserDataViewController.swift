@@ -135,9 +135,7 @@ private extension NewUserDataViewController {
                     return
                 }
                 
-                let userRGBColor = self?.chatSender?.data.userRGBColor ?? ""    //видалить
-                
-                let chatUserData = ChatUserData(userId: safeUserId, userEmail: safeUserEmail, firstName: safeFirstName, lastName: safeLastName, avatarURL: safeURL.absoluteString, userRGBColor: userRGBColor)
+                let chatUserData = ChatUserData(userId: safeUserId, userEmail: safeUserEmail, firstName: safeFirstName, lastName: safeLastName, avatarURL: safeURL.absoluteString)
                 
                 self?.chatSender = ChatUser(data: chatUserData, avatar: safeCompressedAvatar)
                 

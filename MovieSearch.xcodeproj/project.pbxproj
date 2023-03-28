@@ -16,6 +16,7 @@
 		490BD94E29D2818C001C21EB /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BD94D29D2818C001C21EB /* UIImage.swift */; };
 		490BD95029D2886F001C21EB /* NewUserDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BD94F29D2886F001C21EB /* NewUserDataViewController.swift */; };
 		490BD95229D288B7001C21EB /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BD95129D288B7001C21EB /* String.swift */; };
+		4913353F29D3955A0079F324 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4913353E29D3955A0079F324 /* UIColor.swift */; };
 		492BC26729D2062700693157 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492BC26629D2062700693157 /* AppDelegate.swift */; };
 		492BC26929D2062700693157 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492BC26829D2062700693157 /* SceneDelegate.swift */; };
 		492BC26B29D2062700693157 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492BC26A29D2062700693157 /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 		490BD94D29D2818C001C21EB /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		490BD94F29D2886F001C21EB /* NewUserDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserDataViewController.swift; sourceTree = "<group>"; };
 		490BD95129D288B7001C21EB /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		4913353E29D3955A0079F324 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		492BC26329D2062700693157 /* MovieSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		492BC26629D2062700693157 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		492BC26829D2062700693157 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 			children = (
 				490BD94D29D2818C001C21EB /* UIImage.swift */,
 				490BD95129D288B7001C21EB /* String.swift */,
+				4913353E29D3955A0079F324 /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				490BD95229D288B7001C21EB /* String.swift in Sources */,
 				490BD94729D27CB1001C21EB /* LogInViewController.swift in Sources */,
 				490BD94129D2754C001C21EB /* WelcomeViewController.swift in Sources */,
+				4913353F29D3955A0079F324 /* UIColor.swift in Sources */,
 				492BC26729D2062700693157 /* AppDelegate.swift in Sources */,
 				490BD94929D27F12001C21EB /* ChatUserData.swift in Sources */,
 				492BC26929D2062700693157 /* SceneDelegate.swift in Sources */,

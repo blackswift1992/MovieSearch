@@ -14,5 +14,4 @@ struct ChatUserData: Codable {
     let firstName: String
     let lastName: String
     let avatarURL: String
-    let userRGBColor: String
 }
