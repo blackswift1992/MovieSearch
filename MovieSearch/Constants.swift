@@ -10,12 +10,12 @@ struct K {
     
     
     struct Segue {
-        static let signUpToMainScreens = "SignUpToMainScreens"
+        static let signUpToNewUserData = "SignUpToNewUserData"
 //
-//        static let logInToChat = "LogInToChat"
-//        static let logInToNewUserData = "LogInToNewUserData"
+        static let logInToMainScreens = "LogInToMainScreens"
+        static let logInToNewUserData = "LogInToNewUserData"
 //
-//        static let newUserDataToChat = "NewUserDataToChat"
+        static let newUserDataToMainScreens = "NewUserDataToMainScreens"
 //
 //        static let chatToNewUserData = "ChatToNewUserData"
 //
@@ -27,17 +27,17 @@ struct K {
     }
 //
 //
-//    struct FStore {
-//        static let usersCollection = "users"
+    struct FStore {
+        static let usersCollection = "users"
 //        static let messagesCollection = "messages"
-//        static let avatarsCollection = "avatars"
+        static let avatarsCollection = "avatars"
 //
 //        static let userIdField = "userId"
 //        static let textBodyField = "textBody"
 //        static let isEdited = "isEdited"
 //        static let dateField = "date"
 //        static let avatarURLField = "avatarURL"
-//    }
+    }
 //
 //
 //    struct TableCell {
@@ -50,13 +50,13 @@ struct K {
 //        static let greetingNibIdentifier = "ReusableGreetingCell"
 //        static let greetingNibName = "GreetingTableCell"
 //    }
-//
-//
-//    struct Image {
-//        static let jpegType = "image/jpeg"
-//    }
-//
-//
+
+
+    struct Image {
+        static let jpegType = "image/jpeg"
+    }
+
+
 //    struct Date {
 //        static let messageTimestampFormat = "HH:mm"
 //    }
@@ -66,5 +66,6 @@ struct K {
 //        static let no = "no"
 //        static let yes = "yes"
         static let emptyString = ""
+        static let unknownString = "unknown"
     }
 }

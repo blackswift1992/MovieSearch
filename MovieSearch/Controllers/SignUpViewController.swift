@@ -30,7 +30,7 @@ class SignUpViewController: UIViewController {
 
 private extension SignUpViewController {
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: K.Segue.signUpToMainScreens, sender: self)
+        navigateToNewUserData() //видалити в майбутньому - тестовий режим
         
 //        guard let safeUserEmail = emailTextfield.text,
 //              let safeUserPassword = passwordTextfield.text
@@ -45,7 +45,7 @@ private extension SignUpViewController {
 //
 //                    self?.failedToSignUp(withMessage: safeError.localizedDescription)
 //                } else {
-//                    self?.navigateToMainScreens()
+//                    self?.navigateToNewUserData()
 //                }
 //            }
 //        }
@@ -69,8 +69,8 @@ private extension SignUpViewController {
         progressIndicator.stopAnimating()
     }
     
-    func navigateToMainScreens() {
-        performSegue(withIdentifier: K.Segue.signUpToMainScreens, sender: self)
+    func navigateToNewUserData() {
+        performSegue(withIdentifier: K.Segue.signUpToNewUserData, sender: self)
     }
 }
 

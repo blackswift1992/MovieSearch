@@ -10,6 +10,12 @@
 		490BD94129D2754C001C21EB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BD94029D2754C001C21EB /* WelcomeViewController.swift */; };
 		490BD94329D27590001C21EB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BD94229D27590001C21EB /* Constants.swift */; };
 		490BD94529D2791B001C21EB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BD94429D2791B001C21EB /* SignUpViewController.swift */; };
+		490BD94729D27CB1001C21EB /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BD94629D27CB1001C21EB /* LogInViewController.swift */; };
+		490BD94929D27F12001C21EB /* ChatUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BD94829D27F12001C21EB /* ChatUserData.swift */; };
+		490BD94B29D27F34001C21EB /* ChatUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BD94A29D27F34001C21EB /* ChatUser.swift */; };
+		490BD94E29D2818C001C21EB /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BD94D29D2818C001C21EB /* UIImage.swift */; };
+		490BD95029D2886F001C21EB /* NewUserDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BD94F29D2886F001C21EB /* NewUserDataViewController.swift */; };
+		490BD95229D288B7001C21EB /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BD95129D288B7001C21EB /* String.swift */; };
 		492BC26729D2062700693157 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492BC26629D2062700693157 /* AppDelegate.swift */; };
 		492BC26929D2062700693157 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492BC26829D2062700693157 /* SceneDelegate.swift */; };
 		492BC26B29D2062700693157 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492BC26A29D2062700693157 /* ViewController.swift */; };
@@ -25,6 +31,12 @@
 		490BD94029D2754C001C21EB /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		490BD94229D27590001C21EB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		490BD94429D2791B001C21EB /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		490BD94629D27CB1001C21EB /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		490BD94829D27F12001C21EB /* ChatUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUserData.swift; sourceTree = "<group>"; };
+		490BD94A29D27F34001C21EB /* ChatUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUser.swift; sourceTree = "<group>"; };
+		490BD94D29D2818C001C21EB /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		490BD94F29D2886F001C21EB /* NewUserDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserDataViewController.swift; sourceTree = "<group>"; };
+		490BD95129D288B7001C21EB /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		492BC26329D2062700693157 /* MovieSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		492BC26629D2062700693157 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		492BC26829D2062700693157 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,6 +64,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		490BD94C29D2816C001C21EB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				490BD94D29D2818C001C21EB /* UIImage.swift */,
+				490BD95129D288B7001C21EB /* String.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		492BC25A29D2062700693157 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +99,7 @@
 				49FBBAF729D26C9E00BDDA62 /* Models */,
 				49FBBAF829D26CB600BDDA62 /* Views */,
 				49FBBAF929D26CC200BDDA62 /* Controllers */,
+				490BD94C29D2816C001C21EB /* Extensions */,
 				492BC26F29D2062900693157 /* Assets.xcassets */,
 				492BC27129D2062900693157 /* LaunchScreen.storyboard */,
 				492BC27429D2062900693157 /* Info.plist */,
@@ -90,6 +112,8 @@
 		49FBBAF729D26C9E00BDDA62 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				490BD94829D27F12001C21EB /* ChatUserData.swift */,
+				490BD94A29D27F34001C21EB /* ChatUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -109,6 +133,8 @@
 				492BC26A29D2062700693157 /* ViewController.swift */,
 				490BD94029D2754C001C21EB /* WelcomeViewController.swift */,
 				490BD94429D2791B001C21EB /* SignUpViewController.swift */,
+				490BD94629D27CB1001C21EB /* LogInViewController.swift */,
+				490BD94F29D2886F001C21EB /* NewUserDataViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -247,11 +273,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				490BD95029D2886F001C21EB /* NewUserDataViewController.swift in Sources */,
 				490BD94529D2791B001C21EB /* SignUpViewController.swift in Sources */,
+				490BD94E29D2818C001C21EB /* UIImage.swift in Sources */,
 				490BD94329D27590001C21EB /* Constants.swift in Sources */,
 				492BC26B29D2062700693157 /* ViewController.swift in Sources */,
+				490BD94B29D27F34001C21EB /* ChatUser.swift in Sources */,
+				490BD95229D288B7001C21EB /* String.swift in Sources */,
+				490BD94729D27CB1001C21EB /* LogInViewController.swift in Sources */,
 				490BD94129D2754C001C21EB /* WelcomeViewController.swift in Sources */,
 				492BC26729D2062700693157 /* AppDelegate.swift in Sources */,
+				490BD94929D27F12001C21EB /* ChatUserData.swift in Sources */,
 				492BC26929D2062700693157 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
