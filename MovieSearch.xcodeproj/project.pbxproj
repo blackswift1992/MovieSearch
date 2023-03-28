@@ -17,6 +17,7 @@
 		490BD95029D2886F001C21EB /* NewUserDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BD94F29D2886F001C21EB /* NewUserDataViewController.swift */; };
 		490BD95229D288B7001C21EB /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BD95129D288B7001C21EB /* String.swift */; };
 		4913353F29D3955A0079F324 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4913353E29D3955A0079F324 /* UIColor.swift */; };
+		4913354129D3962B0079F324 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4913354029D3962B0079F324 /* ProfileViewController.swift */; };
 		492BC26729D2062700693157 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492BC26629D2062700693157 /* AppDelegate.swift */; };
 		492BC26929D2062700693157 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492BC26829D2062700693157 /* SceneDelegate.swift */; };
 		492BC26B29D2062700693157 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492BC26A29D2062700693157 /* ViewController.swift */; };
@@ -39,6 +40,7 @@
 		490BD94F29D2886F001C21EB /* NewUserDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserDataViewController.swift; sourceTree = "<group>"; };
 		490BD95129D288B7001C21EB /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		4913353E29D3955A0079F324 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		4913354029D3962B0079F324 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		492BC26329D2062700693157 /* MovieSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		492BC26629D2062700693157 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		492BC26829D2062700693157 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				490BD94429D2791B001C21EB /* SignUpViewController.swift */,
 				490BD94629D27CB1001C21EB /* LogInViewController.swift */,
 				490BD94F29D2886F001C21EB /* NewUserDataViewController.swift */,
+				4913354029D3962B0079F324 /* ProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				490BD94529D2791B001C21EB /* SignUpViewController.swift in Sources */,
 				490BD94E29D2818C001C21EB /* UIImage.swift in Sources */,
 				490BD94329D27590001C21EB /* Constants.swift in Sources */,
+				4913354129D3962B0079F324 /* ProfileViewController.swift in Sources */,
 				492BC26B29D2062700693157 /* ViewController.swift in Sources */,
 				490BD94B29D27F34001C21EB /* ChatUser.swift in Sources */,
 				490BD95229D288B7001C21EB /* String.swift in Sources */,
