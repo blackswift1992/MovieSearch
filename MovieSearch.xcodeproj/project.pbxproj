@@ -62,15 +62,39 @@
 			children = (
 				492BC26629D2062700693157 /* AppDelegate.swift */,
 				492BC26829D2062700693157 /* SceneDelegate.swift */,
-				492BC26A29D2062700693157 /* ViewController.swift */,
-				492BC26C29D2062700693157 /* Main.storyboard */,
-				49FBBAF529D243B100BDDA62 /* MainScreens.storyboard */,
+				49FBBAF729D26C9E00BDDA62 /* Models */,
+				49FBBAF829D26CB600BDDA62 /* Views */,
+				49FBBAF929D26CC200BDDA62 /* Controllers */,
 				492BC26F29D2062900693157 /* Assets.xcassets */,
 				492BC27129D2062900693157 /* LaunchScreen.storyboard */,
 				492BC27429D2062900693157 /* Info.plist */,
 				49FBBAF329D2417900BDDA62 /* Colors.xcassets */,
 			);
 			path = MovieSearch;
+			sourceTree = "<group>";
+		};
+		49FBBAF729D26C9E00BDDA62 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		49FBBAF829D26CB600BDDA62 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				492BC26C29D2062700693157 /* Main.storyboard */,
+				49FBBAF529D243B100BDDA62 /* MainScreens.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		49FBBAF929D26CC200BDDA62 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				492BC26A29D2062700693157 /* ViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
