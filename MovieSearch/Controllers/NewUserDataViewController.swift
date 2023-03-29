@@ -34,12 +34,6 @@ class NewUserDataViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
     }
-    
-    
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        navigationController?.isNavigationBarHidden = false
-//    }
 }
 
 
@@ -137,7 +131,7 @@ private extension NewUserDataViewController {
                 
                 let chatUserData = ChatUserData(userId: safeUserId, userEmail: safeUserEmail, firstName: safeFirstName, lastName: safeLastName, avatarURL: safeURL.absoluteString)
                 
-                self?.chatSender = ChatUser(data: chatUserData, avatar: safeCompressedAvatar)
+//                self?.chatSender = ChatUser(data: chatUserData, avatar: safeCompressedAvatar)   //розкоментувати
                 
                 self?.uploadData(chatUserData)
             }
@@ -199,10 +193,11 @@ private extension NewUserDataViewController {
         
         progressIndicator.hidesWhenStopped = true
         
-        if let safeChatSender = chatSender {
-            firstNameTextField.text = safeChatSender.data.firstName
-            lastNameTextField.text = safeChatSender.data.lastName
-            avatarImageView.image = safeChatSender.avatar
+        if let safeChatSender = chatSender,
+           let safeChatSenderData = safeChatSender.data {
+            firstNameTextField.text = safeChatSenderData.firstName
+            lastNameTextField.text = safeChatSenderData.lastName
+//            avatarImageView.image = safeChatSender.avatar   //розкоментувати
         }
         
         errorLabel.text = errorMessage

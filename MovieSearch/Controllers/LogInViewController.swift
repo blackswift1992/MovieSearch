@@ -9,6 +9,7 @@ import UIKit
 import FirebaseStorage
 import FirebaseAuth
 import FirebaseFirestore
+import RealmSwift
 
 class LogInViewController: UIViewController {
     @IBOutlet private weak var errorLabel: UILabel!
@@ -18,6 +19,8 @@ class LogInViewController: UIViewController {
     
     @IBOutlet private weak var progressIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var logInButton: UIButton!
+    
+    private let realm = try! Realm()
     
     private var chatSender: ChatUser?
     private var errorMessage: String?
@@ -48,9 +51,10 @@ class LogInViewController: UIViewController {
 
 private extension LogInViewController {
     @IBAction func logInButtonPressed(_ sender: UIButton) {
-//        navigateToNewUserData() //видалити в майбутньому - тестовий режим
         navigateToMainScreens() //видалити в майбутньому - тестовий режим
         
+//        guard let safeUserEmail = emailTextfield.text,
+//              let safeUserPassword = passwordTextfield.text else { return }
 //        guard let safeUserEmail = emailTextfield.text,
 //              let safeUserPassword = passwordTextfield.text else { return }
 //
@@ -90,7 +94,9 @@ private extension LogInViewController {
                 do {
                     let chatUserData = try document.data(as: ChatUserData.self)
                     
-                    self?.chatSender = ChatUser(data: chatUserData, avatar: UIImage.defaultAvatar)
+                    let defaultAvatarData = UIImage.defaultAvatar?.pngData()
+                    
+                    self?.chatSender = ChatUser(data: chatUserData, avatar: defaultAvatarData)
                     
                     //В ChatUser додати структуру FavoriteFilms
                     //Витягнути з Firebase дані про favorite films і записати їх в об'єкт FavoriteFilms об'єкта chatSender і вже після цього викликати метод
@@ -107,11 +113,20 @@ private extension LogInViewController {
             } else {
                 self?.errorMessage = "Your user data doesn't exist. Set it please."
                 
+                //Юзер залогінився, але його дані не існують
+                //Юзера перекидують в NewUserDataViewController де зобов'язуються юзера вказати необхідні дані. На цьому етапі при переході в NewUserDataViewController в якості об'єкта chatSender-а передається nil
+                //Хоча щоб не порушувати логіку, все рівно запишемо в Realm об'єкт chatUser тільки із всіма дуфолтними даними
+                let chatUserDefaultData = ChatUserData(userId: K.Case.emptyString, userEmail: K.Case.emptyString, firstName: K.Case.emptyString, lastName: K.Case.emptyString, avatarURL: K.Case.emptyString)
+                
+                let defaultAvatarData = UIImage.defaultAvatar?.pngData()
+
+                let defaultAppUser = ChatUser(data: chatUserDefaultData, avatar: defaultAvatarData)
+                
+                self?.saveAppUserToRealm(defaultAppUser)
+                
                 DispatchQueue.main.async {
                     self?.navigateToNewUserData()
                 }
-                //Юзер залогінився, але його дані не існують
-                //Юзера перекидують в NewUserDataViewController де зобов'язуються юзера вказати необхідні дані. На цьому етапі при переході в NewUserDataViewController в якості об'єкта chatSender-а передається nil
             }
         }
     }
@@ -130,24 +145,29 @@ private extension LogInViewController {
                 //На цьому етапі система визначила що у юзера є його дані АЛЕ НЕМАЄ АВАТАРКИ
                 //Дані юзера і ДЕФОЛТНА АВАТАРКА записані в об'єкт chatSender
                 //Далі робиться переход в NewUserDataViewController і при переході передається об'єкт chatSender, який вже буде оброблятися в самому NewUserDataViewController-і
+                if let appUser = self?.chatSender {
+                    self?.saveAppUserToRealm(appUser)
+                }
+                
                 DispatchQueue.main.async {
                     self?.navigateToNewUserData()
                 }
             } else {
-                guard let safeAvatarData = data,
-                      let safeAvatar = UIImage(data: safeAvatarData)
-                else {
+                guard let safeAvatarData = data else {
                     DispatchQueue.main.async {
                         self?.failedToLogIn(withMessage: "Try again")
                     }
                     return
                 }
                 
-                self?.chatSender?.avatar = safeAvatar
-                
                 //На цьому етапі система визначила що у юзера є і його дані і його аватарка
                 //Дані і аватарка юзера записані в об'єкт chatSender
-                //І тут потрібно перед перходом до MainScreens зберегти об'єкт chatSender в Realm, щоб потім вже знаходячись в вкладці Профіль витягнути дані і аватар юзера з Realm-a і відобразити на екрані.
+                //І тут потрібно перед перeходом до MainScreens зберегти об'єкт chatSender в Realm, щоб потім вже знаходячись в вкладці Профіль витягнути дані і аватар юзера з Realm-a і відобразити на екрані.
+                self?.chatSender?.avatar = safeAvatarData
+                
+                if let appUser = self?.chatSender {
+                    self?.saveAppUserToRealm(appUser)
+                }
                 
                 DispatchQueue.main.async {
                     self?.navigateToMainScreens()
@@ -176,6 +196,18 @@ private extension LogInViewController {
     func navigateToMainScreens() {
         performSegue(withIdentifier: K.Segue.logInToMainScreens, sender: self)
     }
+    
+    //MARK: -- realm methods
+    func saveAppUserToRealm(_ appUser: ChatUser) {
+        do {
+            try realm.write {
+                realm.add(appUser)
+            }
+        } catch {
+            print("Error with appUser saving, \(error)")
+        }
+    }
+    
 }
 
 

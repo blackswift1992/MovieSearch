@@ -9,4 +9,5 @@ import UIKit
 
 extension UIImage {
     static let defaultAvatar = UIImage(named: "DefaultSingleAvatar")
+    static let textfieldImage = UIImage(named: "textfield")
 }
