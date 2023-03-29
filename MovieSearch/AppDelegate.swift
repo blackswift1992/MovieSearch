@@ -6,11 +6,19 @@
 //
 
 import UIKit
+import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 //        UITabBar.appearance().unselectedItemTintColor = .red
+        
+        do {
+            let _ = try Realm()
+        } catch {
+            print("New Realm initialising is failed, \(error)")
+        }
+        
         return true
     }
 
