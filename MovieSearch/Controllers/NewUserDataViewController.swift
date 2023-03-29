@@ -9,6 +9,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 import FirebaseStorage
+import RealmSwift
 
 class NewUserDataViewController: UIViewController {
     @IBOutlet private weak var errorLabel: UILabel!
@@ -22,7 +23,9 @@ class NewUserDataViewController: UIViewController {
     @IBOutlet private weak var progressIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var continueButton: UIButton!
     
-    private var chatSender: ChatUser?
+    private let realm = try! Realm()
+    
+    private var appUser: AppUser?
     private var errorMessage: String?
     
     override func viewDidLoad() {
@@ -41,8 +44,8 @@ class NewUserDataViewController: UIViewController {
 
 
 extension NewUserDataViewController {
-    func setChatSender(_ chatSender: ChatUser?, errorMessage: String?) {
-        self.chatSender = chatSender
+    func setAppUser(_ appUser: AppUser?, errorMessage: String?) {
+        self.appUser = appUser
         self.errorMessage = errorMessage
     }
 }
@@ -98,8 +101,7 @@ private extension NewUserDataViewController {
               let safeUserEmail = Auth.auth().currentUser?.email,
               let safeFirstName = firstNameTextField.text?.trim(),
               let safeLastName = lastNameTextField.text?.trim(),
-              let safeAvatarData = avatarImageView.image?.jpegData(compressionQuality: 0.02),
-              let safeCompressedAvatar = UIImage(data: safeAvatarData)
+              let safeAvatarData = avatarImageView.image?.jpegData(compressionQuality: 0.02)
         else {
             failedWithErrorMessage("Try again")
             return
@@ -129,26 +131,29 @@ private extension NewUserDataViewController {
                     return
                 }
                 
-                let chatUserData = ChatUserData(userId: safeUserId, userEmail: safeUserEmail, firstName: safeFirstName, lastName: safeLastName, avatarURL: safeURL.absoluteString)
+                let appUserData = AppUserData(userId: safeUserId, userEmail: safeUserEmail, firstName: safeFirstName, lastName: safeLastName, avatarURL: safeURL.absoluteString)
                 
-//                self?.chatSender = ChatUser(data: chatUserData, avatar: safeCompressedAvatar)   //розкоментувати
+                self?.appUser = AppUser(data: appUserData, avatar: safeAvatarData)
                 
-                self?.uploadData(chatUserData)
+                self?.uploadData(appUserData)
             }
         }
     }
     
     //MARK: -- data uploading
-    func uploadData(_ chatUserData: ChatUserData) {
+    func uploadData(_ appUserData: AppUserData) {
         do {
-            try Firestore.firestore().collection(K.FStore.usersCollection).document(chatUserData.userId).setData(from: chatUserData) { [weak self] error in
+            try Firestore.firestore().collection(K.FStore.usersCollection).document(appUserData.userId).setData(from: appUserData) { [weak self] error in
                 DispatchQueue.main.async {
                     if error != nil {
                         self?.failedWithErrorMessage("Try again")
                     } else {
-                        
                         //На цьому етапі дані юзера і його аватарка завантажені в Firebase
-                        //І тут потрібно перед перходом до MainScreens зберегти об'єкт chatSender в Realm, щоб потім вже знаходячись в вкладці Профіль витягнути дані і аватар юзера з Realm-a і відобразити на екрані.
+                        //І тут потрібно перед переходом до MainScreens зберегти об'єкт appUser в Realm, щоб потім вже знаходячись в вкладці Профіль витягнути дані і аватар юзера з Realm-a і відобразити на екрані.
+                        if let appUser = self?.appUser {
+                            self?.saveAppUserToRealm(appUser)
+                        }
+
                         self?.navigateToMainScreens()
                     }
                 }
@@ -159,6 +164,17 @@ private extension NewUserDataViewController {
             DispatchQueue.main.async {
                 self.failedWithErrorMessage("Try again")
             }
+        }
+    }
+    
+    //MARK: -- realm methods
+    func saveAppUserToRealm(_ appUser: AppUser) {
+        do {
+            try realm.write {
+                realm.add(appUser, update: .modified)
+            }
+        } catch {
+            print("Error with appUser saving, \(error)")
         }
     }
     
@@ -193,11 +209,12 @@ private extension NewUserDataViewController {
         
         progressIndicator.hidesWhenStopped = true
         
-        if let safeChatSender = chatSender,
-           let safeChatSenderData = safeChatSender.data {
-            firstNameTextField.text = safeChatSenderData.firstName
-            lastNameTextField.text = safeChatSenderData.lastName
-//            avatarImageView.image = safeChatSender.avatar   //розкоментувати
+        if let safeAppUser = appUser,
+           let safeAppUserData = safeAppUser.data,
+           let safeAvatarData = safeAppUser.avatar {
+            firstNameTextField.text = safeAppUserData.firstName
+            lastNameTextField.text = safeAppUserData.lastName
+            avatarImageView.image = UIImage(data: safeAvatarData)
         }
         
         errorLabel.text = errorMessage

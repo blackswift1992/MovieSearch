@@ -20,27 +20,12 @@ class ProfileViewController: UIViewController {
     
     private let realm = try! Realm()
     
-    private var appUser: Results<ChatUser>?
+    private var appUser: AppUser?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadAppUserFromRealm()
         customizeViewElements()
-        
-        guard let safeAppUser = appUser?.first else { return }
-        
-        
-        if let safeFirstName = safeAppUser.data?.firstName {
-            print("first name exists!!!!!!!!!!!!!!!!!!!")
-            firstNameLabel.text = safeFirstName
-        }
-        
-        if let avatar = safeAppUser.avatar {
-            print("avatar exists!!!!!!!!!!!!!!!!!!!")
-            avatarImageView.image = UIImage(data: avatar)
-        }
-        
-        //З Realm-а витягнути дані і аватарку юзера і відобразити їх на view
     }
 }
 
@@ -60,7 +45,7 @@ private extension ProfileViewController {
 
 private extension ProfileViewController {
     func logOut() {
-        deleteAllInRealm()
+        deleteAllAppUsersInRealm()
         navigateToWelcome() //видалити в майбутньому - тестовий режим
         
 //        do {
@@ -72,10 +57,11 @@ private extension ProfileViewController {
 //        }
     }
     
-    func deleteAllInRealm() {
+    func deleteAllAppUsersInRealm() {
         do {
             try realm.write {
-                realm.deleteAll()
+                let allAppUsers = realm.objects(AppUser.self)
+                realm.delete(allAppUsers)
             }
         } catch {
             print("Error with appUser saving, \(error)")
@@ -87,7 +73,7 @@ private extension ProfileViewController {
     }
     
     func loadAppUserFromRealm() {
-        appUser = realm.objects(ChatUser.self)
+        appUser = realm.object(ofType: AppUser.self, forPrimaryKey: 1)
     }
 }
 
@@ -101,5 +87,14 @@ private extension ProfileViewController {
         avatarImageView.layer.borderWidth = 0.5
         
         logOutView.layer.cornerRadius = 17
+        
+        if let safeAppUser = appUser,
+           let safeAppUserData = safeAppUser.data,
+           let safeAvatarData = safeAppUser.avatar {
+            avatarImageView.image = UIImage(data: safeAvatarData)
+            emailLabel.text = safeAppUserData.userEmail
+            firstNameLabel.text = safeAppUserData.firstName
+            lastNameLabel.text = safeAppUserData.lastName
+        }
     }
 }

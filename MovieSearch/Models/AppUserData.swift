@@ -20,12 +20,12 @@ import FirebaseFirestoreSwift
 
 import RealmSwift
 
-class ChatUserData: Object, Codable {
-    @objc dynamic var userId: String
-    @objc dynamic var userEmail: String
-    @objc dynamic var firstName: String
-    @objc dynamic var lastName: String
-    @objc dynamic var avatarURL: String
+class AppUserData: Object, Codable {
+    @Persisted var userId: String
+    @Persisted var userEmail: String
+    @Persisted var firstName: String
+    @Persisted var lastName: String
+    @Persisted var avatarURL: String
     
     convenience init(userId: String, userEmail: String, firstName: String, lastName: String, avatarURL: String) {
         self.init()
