@@ -76,17 +76,15 @@ private extension NewUserDataViewController {
     }
     
     @IBAction func continueButtonPressed(_ sender: UIButton) {
-        navigateToMainScreens() //видалити в майбутньому - тестовий режим
-        
-//        guard let safeFirstName = firstNameTextField.text?.trim() else { return }
-//
-//        activateScreenWaitingMode()
-//
-//        if !safeFirstName.isEmpty {
-//            uploadAvatar()
-//        } else {
-//            failedWithErrorMessage("Type your first name")
-//        }
+        guard let safeFirstName = firstNameTextField.text?.trim() else { return }
+
+        activateScreenWaitingMode()
+
+        if !safeFirstName.isEmpty {
+            uploadAvatar()
+        } else {
+            failedWithErrorMessage("Type your first name")
+        }
     }
 }
 

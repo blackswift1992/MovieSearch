@@ -51,35 +51,23 @@ class LogInViewController: UIViewController {
 
 private extension LogInViewController {
     @IBAction func logInButtonPressed(_ sender: UIButton) {
-        //Код для тесту роботи Realm
         guard let safeUserEmail = emailTextfield.text,
               let safeUserPassword = passwordTextfield.text else { return }
-        let chatUserDefaultData = AppUserData(userId: K.Case.emptyString, userEmail: K.Case.emptyString, firstName: safeUserEmail, lastName: safeUserPassword, avatarURL: K.Case.emptyString)
-        let defaultAvatarData = UIImage.textfieldImage?.pngData()
-        let defaultAppUser = AppUser(data: chatUserDefaultData, avatar: defaultAvatarData)
-        saveAppUserToRealm(defaultAppUser)
-        
 
-        navigateToMainScreens() //видалити в майбутньому - тестовий режим
-        
+        activateScreenWaitingMode()
 
-//        guard let safeUserEmail = emailTextfield.text,
-//              let safeUserPassword = passwordTextfield.text else { return }
-//
-//        activateScreenWaitingMode()
-//
-//        Auth.auth().signIn(withEmail: safeUserEmail, password: safeUserPassword) {
-//            [weak self] authResult, error in
-//            if let safeError = error {
-//                print(safeError)
-//
-//                DispatchQueue.main.async {
-//                    self?.failedToLogIn(withMessage: safeError.localizedDescription)
-//                }
-//            } else {
-//                self?.checkIsUserDataExists()
-//            }
-//        }
+        Auth.auth().signIn(withEmail: safeUserEmail, password: safeUserPassword) {
+            [weak self] authResult, error in
+            if let safeError = error {
+                print(safeError)
+
+                DispatchQueue.main.async {
+                    self?.failedToLogIn(withMessage: safeError.localizedDescription)
+                }
+            } else {
+                self?.checkIsUserDataExists()
+            }
+        }
     }
 }
 

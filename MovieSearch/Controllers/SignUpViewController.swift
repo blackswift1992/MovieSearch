@@ -30,25 +30,23 @@ class SignUpViewController: UIViewController {
 
 private extension SignUpViewController {
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
-        navigateToNewUserData() //видалити в майбутньому - тестовий режим
-        
-//        guard let safeUserEmail = emailTextfield.text,
-//              let safeUserPassword = passwordTextfield.text
-//        else { return }
-//
-//        activateScreenWaitingMode()
-//
-//        Auth.auth().createUser(withEmail: safeUserEmail, password: safeUserPassword) { [weak self] authResult, error in
-//            DispatchQueue.main.async {
-//                if let safeError = error {
-//                    print(safeError)
-//
-//                    self?.failedToSignUp(withMessage: safeError.localizedDescription)
-//                } else {
-//                    self?.navigateToNewUserData()
-//                }
-//            }
-//        }
+        guard let safeUserEmail = emailTextfield.text,
+              let safeUserPassword = passwordTextfield.text
+        else { return }
+
+        activateScreenWaitingMode()
+
+        Auth.auth().createUser(withEmail: safeUserEmail, password: safeUserPassword) { [weak self] authResult, error in
+            DispatchQueue.main.async {
+                if let safeError = error {
+                    print(safeError)
+
+                    self?.failedToSignUp(withMessage: safeError.localizedDescription)
+                } else {
+                    self?.navigateToNewUserData()
+                }
+            }
+        }
     }
 }
 
