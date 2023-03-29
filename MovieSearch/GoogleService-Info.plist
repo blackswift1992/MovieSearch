@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>157356374152-4edbm2bqd8jjdbpvs66ni3qdh1t6j5f9.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.157356374152-4edbm2bqd8jjdbpvs66ni3qdh1t6j5f9</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDBUOxogt2TlTEE5UL3qbcJSXa0-QK2RAE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>157356374152</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>ua.org.zoromjavadev.MovieSearch</string>
+	<key>PROJECT_ID</key>
+	<string>moviesearch-a92c2</string>
+	<key>STORAGE_BUCKET</key>
+	<string>moviesearch-a92c2.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:157356374152:ios:7ebe8102daf5077b80873d</string>
+</dict>
+</plist>

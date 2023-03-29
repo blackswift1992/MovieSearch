@@ -7,6 +7,10 @@
 
 import UIKit
 import RealmSwift
+import FirebaseCore
+import FirebaseFirestore
+import FirebaseAuth
+
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch {
             print("New Realm initialising is failed, \(error)")
         }
+        
+        FirebaseApp.configure()
+        Firestore.firestore()
         
         return true
     }
