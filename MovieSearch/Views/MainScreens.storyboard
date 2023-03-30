@@ -261,11 +261,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FilmCell" id="MAp-10-lJv">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FilmCell" id="MAp-10-lJv">
                                 <rect key="frame" x="0.0" y="50" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MAp-10-lJv" id="aAJ-fX-EvO">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="383.5" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -276,10 +276,29 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Головна" image="list.and.film" catalog="system" selectedImage="list.and.film" id="1dM-UZ-F1m"/>
+                    <connections>
+                        <segue destination="Pj1-Pg-BQo" kind="show" id="IJU-R9-bqv"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ASK-df-uKR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1512" y="2269"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="bq2-Oc-lau">
+            <objects>
+                <viewController id="Pj1-Pg-BQo" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Eqd-79-1Qf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="qep-Ac-vTJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="crJ-0H-7Kw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pAv-Dw-gBk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1512" y="3131"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="qYR-AK-ybJ">

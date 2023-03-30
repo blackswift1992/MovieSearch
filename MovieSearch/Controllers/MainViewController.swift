@@ -36,6 +36,16 @@ class MainViewController: UITableViewController {
         return cell
     }
     
+    // MARK: - Table view delegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        if categories != nil {
+//            performSegue(withIdentifier: K.Segue.goToTasks, sender: self)
+//        }
+
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 
     /*
     // Override to support conditional editing of the table view.
