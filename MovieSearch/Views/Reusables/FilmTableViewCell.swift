@@ -8,7 +8,11 @@
 import UIKit
 
 class FilmTableViewCell: UITableViewCell {
-
+    @IBOutlet private weak var posterImageView: UIImageView!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var yearLabel: UILabel!
+    @IBOutlet private weak var genreLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
