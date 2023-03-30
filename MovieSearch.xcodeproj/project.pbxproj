@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		490420B229D6082500AD981B /* FilmInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490420B129D6082500AD981B /* FilmInfoViewController.swift */; };
 		490BD94129D2754C001C21EB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BD94029D2754C001C21EB /* WelcomeViewController.swift */; };
 		490BD94329D27590001C21EB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BD94229D27590001C21EB /* Constants.swift */; };
 		490BD94529D2791B001C21EB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BD94429D2791B001C21EB /* SignUpViewController.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		490420B129D6082500AD981B /* FilmInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmInfoViewController.swift; sourceTree = "<group>"; };
 		490BD94029D2754C001C21EB /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		490BD94229D27590001C21EB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		490BD94429D2791B001C21EB /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				490BD94F29D2886F001C21EB /* NewUserDataViewController.swift */,
 				4913354029D3962B0079F324 /* ProfileViewController.swift */,
 				49432F6B29D5D48700E96D8A /* MainViewController.swift */,
+				490420B129D6082500AD981B /* FilmInfoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				490BD95229D288B7001C21EB /* String.swift in Sources */,
 				490BD94729D27CB1001C21EB /* LogInViewController.swift in Sources */,
 				49432F6C29D5D48700E96D8A /* MainViewController.swift in Sources */,
+				490420B229D6082500AD981B /* FilmInfoViewController.swift in Sources */,
 				490BD94129D2754C001C21EB /* WelcomeViewController.swift in Sources */,
 				4913353F29D3955A0079F324 /* UIColor.swift in Sources */,
 				492BC26729D2062700693157 /* AppDelegate.swift in Sources */,

@@ -42,6 +42,8 @@ class MainViewController: UITableViewController {
 //        if categories != nil {
 //            performSegue(withIdentifier: K.Segue.goToTasks, sender: self)
 //        }
+        
+        performSegue(withIdentifier: K.Segue.mainToFilmInfo, sender: self)
 
         
         tableView.deselectRow(at: indexPath, animated: true)

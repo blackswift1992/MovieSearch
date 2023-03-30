@@ -17,7 +17,7 @@ struct K {
 //
         static let newUserDataToMainScreens = "NewUserDataToMainScreens"
 //
-//        static let chatToNewUserData = "ChatToNewUserData"
+        static let mainToFilmInfo = "MainToFilmInfo"
 //
 //        static let chatToMessageMenu = "ChatToMessageMenu"
 //        static let chatToEditMessageWarning = "ChatToEditMessageWarning"

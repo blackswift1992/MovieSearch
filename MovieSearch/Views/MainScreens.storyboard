@@ -25,7 +25,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pkp-bE-uqw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2670" y="2257"/>
+            <point key="canvasLocation" x="2670" y="2269"/>
         </scene>
         <!--Профіль-->
         <scene sceneID="Z4k-A5-e8R">
@@ -250,9 +250,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sll-qm-tfS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3731.884057971015" y="2256.6964285714284"/>
+            <point key="canvasLocation" x="3835" y="2269"/>
         </scene>
-        <!--Головна-->
+        <!--Main View Controller-->
         <scene sceneID="bvn-ex-Gho">
             <objects>
                 <tableViewController id="3fT-tI-FSk" customClass="MainViewController" customModule="MovieSearch" customModuleProvider="target" sceneMemberID="viewController">
@@ -275,21 +275,21 @@
                             <outlet property="delegate" destination="3fT-tI-FSk" id="04I-AR-Bqv"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Головна" image="list.and.film" catalog="system" selectedImage="list.and.film" id="1dM-UZ-F1m"/>
+                    <navigationItem key="navigationItem" id="xwv-A8-2az"/>
                     <connections>
-                        <segue destination="Pj1-Pg-BQo" kind="show" id="IJU-R9-bqv"/>
+                        <segue destination="Pj1-Pg-BQo" kind="show" identifier="MainToFilmInfo" id="IJU-R9-bqv"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ASK-df-uKR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1512" y="2269"/>
+            <point key="canvasLocation" x="1512" y="2977"/>
         </scene>
-        <!--View Controller-->
+        <!--Film Info View Controller-->
         <scene sceneID="bq2-Oc-lau">
             <objects>
-                <viewController id="Pj1-Pg-BQo" sceneMemberID="viewController">
+                <viewController id="Pj1-Pg-BQo" customClass="FilmInfoViewController" customModule="MovieSearch" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Eqd-79-1Qf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="qep-Ac-vTJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -298,7 +298,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pAv-Dw-gBk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1512" y="3131"/>
+            <point key="canvasLocation" x="1512" y="3698"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="qYR-AK-ybJ">
@@ -312,7 +312,7 @@
                         <color key="selectedImageTintColor" name="BrandMint"/>
                     </tabBar>
                     <connections>
-                        <segue destination="3fT-tI-FSk" kind="relationship" relationship="viewControllers" id="2Fg-Jq-tbh"/>
+                        <segue destination="UqO-nQ-2hv" kind="relationship" relationship="viewControllers" id="2Fg-Jq-tbh"/>
                         <segue destination="sYr-ys-fNm" kind="relationship" relationship="viewControllers" id="82V-JJ-WNj"/>
                         <segue destination="m5j-BS-VG0" kind="relationship" relationship="viewControllers" id="hxY-Gx-Yji"/>
                     </connections>
@@ -320,6 +320,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FbS-Rq-YT8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2671" y="1531"/>
+        </scene>
+        <!--Головна-->
+        <scene sceneID="wCl-iH-IAS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UqO-nQ-2hv" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Головна" image="list.and.film" catalog="system" selectedImage="list.and.film" id="1dM-UZ-F1m"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cy6-Jg-phE">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3fT-tI-FSk" kind="relationship" relationship="rootViewController" id="GUS-cz-qeM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LPR-li-NbF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1511.5942028985507" y="2268.75"/>
         </scene>
     </scenes>
     <resources>
