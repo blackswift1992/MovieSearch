@@ -253,22 +253,33 @@
             <point key="canvasLocation" x="3731.884057971015" y="2256.6964285714284"/>
         </scene>
         <!--Головна-->
-        <scene sceneID="g13-y6-Xh1">
+        <scene sceneID="bvn-ex-Gho">
             <objects>
-                <viewController id="sX4-NJ-ah0" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="l8z-8L-zBK">
+                <tableViewController id="3fT-tI-FSk" customClass="MainViewController" customModule="MovieSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="kdQ-m7-mbk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="7BG-ST-rZs"/>
-                        <color key="backgroundColor" red="1" green="1" blue="0.75662772150000002" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Головна" image="list.and.film" catalog="system" id="J8u-iN-b94">
-                        <imageReference key="selectedImage" image="list.and.film" catalog="system" symbolScale="default"/>
-                    </tabBarItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hVp-ED-EQL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FilmCell" id="MAp-10-lJv">
+                                <rect key="frame" x="0.0" y="50" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MAp-10-lJv" id="aAJ-fX-EvO">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="3fT-tI-FSk" id="OkL-6h-hE6"/>
+                            <outlet property="delegate" destination="3fT-tI-FSk" id="04I-AR-Bqv"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Головна" image="list.and.film" catalog="system" selectedImage="list.and.film" id="1dM-UZ-F1m"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ASK-df-uKR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1599" y="2257"/>
+            <point key="canvasLocation" x="1512" y="2269"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="qYR-AK-ybJ">
@@ -282,7 +293,7 @@
                         <color key="selectedImageTintColor" name="BrandMint"/>
                     </tabBar>
                     <connections>
-                        <segue destination="sX4-NJ-ah0" kind="relationship" relationship="viewControllers" id="U3q-QV-pht"/>
+                        <segue destination="3fT-tI-FSk" kind="relationship" relationship="viewControllers" id="2Fg-Jq-tbh"/>
                         <segue destination="sYr-ys-fNm" kind="relationship" relationship="viewControllers" id="82V-JJ-WNj"/>
                         <segue destination="m5j-BS-VG0" kind="relationship" relationship="viewControllers" id="hxY-Gx-Yji"/>
                     </connections>
@@ -312,6 +323,9 @@
         </namedColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
