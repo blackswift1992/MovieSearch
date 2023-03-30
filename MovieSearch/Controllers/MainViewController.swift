@@ -40,13 +40,7 @@ class MainViewController: UITableViewController {
     // MARK: - Table view delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if categories != nil {
-//            performSegue(withIdentifier: K.Segue.goToTasks, sender: self)
-//        }
-        
         performSegue(withIdentifier: K.Segue.mainToFilmInfo, sender: self)
-
-        
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
