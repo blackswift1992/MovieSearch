@@ -26,6 +26,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         Firestore.firestore()
         
+        let tabBarApperance = UITabBarAppearance()
+            tabBarApperance.configureWithOpaqueBackground()
+            tabBarApperance.backgroundColor = UIColor.brandGray6
+            UITabBar.appearance().scrollEdgeAppearance = tabBarApperance
+            UITabBar.appearance().standardAppearance = tabBarApperance
+        
         return true
     }
 

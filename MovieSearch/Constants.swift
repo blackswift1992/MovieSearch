@@ -38,18 +38,18 @@ struct K {
 //        static let dateField = "date"
 //        static let avatarURLField = "avatarURL"
     }
-//
-//
-//    struct TableCell {
-//        static let senderNibIdentifier = "ReusableSenderCell"
-//        static let senderNibName = "SenderMessageCell"
+
+
+    struct TableCell {
+        static let filmNibIdentifier = "FilmCell"
+        static let filmNibName = "FilmTableViewCell"
 //
 //        static let receiverNibIdentifier = "ReusableReceiverCell"
 //        static let receiverNibName = "ReceiverMessageCell"
 //
 //        static let greetingNibIdentifier = "ReusableGreetingCell"
 //        static let greetingNibName = "GreetingTableCell"
-//    }
+    }
 
 
     struct Image {

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		490420B229D6082500AD981B /* FilmInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490420B129D6082500AD981B /* FilmInfoViewController.swift */; };
+		490420B629D60BAB00AD981B /* FilmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490420B429D60BAB00AD981B /* FilmTableViewCell.swift */; };
+		490420B729D60BAB00AD981B /* FilmTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 490420B529D60BAB00AD981B /* FilmTableViewCell.xib */; };
 		490BD94129D2754C001C21EB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BD94029D2754C001C21EB /* WelcomeViewController.swift */; };
 		490BD94329D27590001C21EB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BD94229D27590001C21EB /* Constants.swift */; };
 		490BD94529D2791B001C21EB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BD94429D2791B001C21EB /* SignUpViewController.swift */; };
@@ -34,6 +36,8 @@
 
 /* Begin PBXFileReference section */
 		490420B129D6082500AD981B /* FilmInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmInfoViewController.swift; sourceTree = "<group>"; };
+		490420B429D60BAB00AD981B /* FilmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmTableViewCell.swift; sourceTree = "<group>"; };
+		490420B529D60BAB00AD981B /* FilmTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilmTableViewCell.xib; sourceTree = "<group>"; };
 		490BD94029D2754C001C21EB /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		490BD94229D27590001C21EB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		490BD94429D2791B001C21EB /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +78,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		490420B329D60A4200AD981B /* Reusables */ = {
+			isa = PBXGroup;
+			children = (
+				490420B429D60BAB00AD981B /* FilmTableViewCell.swift */,
+				490420B529D60BAB00AD981B /* FilmTableViewCell.xib */,
+			);
+			path = Reusables;
+			sourceTree = "<group>";
+		};
 		490BD94C29D2816C001C21EB /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +146,7 @@
 		49FBBAF829D26CB600BDDA62 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				490420B329D60A4200AD981B /* Reusables */,
 				492BC26C29D2062700693157 /* Main.storyboard */,
 				49FBBAF529D243B100BDDA62 /* MainScreens.storyboard */,
 			);
@@ -234,6 +248,7 @@
 				492BC27329D2062900693157 /* LaunchScreen.storyboard in Resources */,
 				49FBBAF429D2417900BDDA62 /* Colors.xcassets in Resources */,
 				492BC27029D2062900693157 /* Assets.xcassets in Resources */,
+				490420B729D60BAB00AD981B /* FilmTableViewCell.xib in Resources */,
 				49FBBAF629D243B100BDDA62 /* MainScreens.storyboard in Resources */,
 				492BC26E29D2062700693157 /* Main.storyboard in Resources */,
 				491BD05F29D4E63300C1EEB7 /* GoogleService-Info.plist in Resources */,
@@ -301,6 +316,7 @@
 				49432F6C29D5D48700E96D8A /* MainViewController.swift in Sources */,
 				490420B229D6082500AD981B /* FilmInfoViewController.swift in Sources */,
 				490BD94129D2754C001C21EB /* WelcomeViewController.swift in Sources */,
+				490420B629D60BAB00AD981B /* FilmTableViewCell.swift in Sources */,
 				4913353F29D3955A0079F324 /* UIColor.swift in Sources */,
 				492BC26729D2062700693157 /* AppDelegate.swift in Sources */,
 				490BD94929D27F12001C21EB /* AppUserData.swift in Sources */,
