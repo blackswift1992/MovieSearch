@@ -45,16 +45,14 @@ private extension ProfileViewController {
 
 private extension ProfileViewController {
     func logOut() {
-        deleteAllAppUsersInRealm()
-        navigateToWelcome() //видалити в майбутньому - тестовий режим
-        
-//        do {
-//            try Auth.auth().signOut()
-//            navigateToWelcome()
-//        } catch let signOutError as NSError {
-//            print("Error signing out: %@", signOutError)
-//            navigateToWelcome()
-//        }
+        do {
+            try Auth.auth().signOut()
+            deleteAllAppUsersInRealm()
+            navigateToWelcome()
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+            navigateToWelcome()
+        }
     }
     
     func deleteAllAppUsersInRealm() {
