@@ -14,7 +14,7 @@ class FilmInfoViewController: UIViewController {
     @IBOutlet private weak var countryLabel: UILabel!
     @IBOutlet private weak var genreLabel: UILabel!
     @IBOutlet private weak var directorNameLabel: UILabel!
-    @IBOutlet private weak var shortDescriptionLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
     
     private var filmData: FilmData?
     
@@ -46,7 +46,7 @@ class FilmInfoViewController: UIViewController {
             countryLabel.text = safeFilmData.country
             genreLabel.text = safeFilmData.primaryGenreName
             directorNameLabel.text = safeFilmData.artistName
-            shortDescriptionLabel.text = safeFilmData.longDescription
+            descriptionLabel.text = safeFilmData.longDescription
         }
     }
 }
