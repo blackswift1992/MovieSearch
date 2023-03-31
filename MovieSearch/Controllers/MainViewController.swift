@@ -70,31 +70,20 @@ class MainViewController: UITableViewController {
             switch response.result {
             case .success(let flower):
                 let flowerJSON = JSON(flower)
-//                print(flowerJSON)
-                
-                
                 self?.allFilms.removeAll()
                 
-//                var downloadedPostersCounter = 0
                 var receivedFilms = [FilmData]()
                 
                 for i in 0..<limit {
-                    let artworkUrl100 = flowerJSON["results"][i]["artworkUrl100"].stringValue
-//                    let imageView = UIImageView().sd_setImage(with: URL(string: artworkUrl100))
-                    
-                    
-                    
-//                    UIImageView().sd
-                    
-
                     let trackCensoredName = flowerJSON["results"][i]["trackCensoredName"].stringValue
-                    
                     let releaseDate = flowerJSON["results"][i]["releaseDate"].stringValue
-                    
                     let primaryGenreName = flowerJSON["results"][i]["primaryGenreName"].stringValue
-//                    let artworkUrl100 = flowerJSON["results"][i]["artworkUrl100"].stringValue
-                    
-                    let film = FilmData(trackCensoredName: trackCensoredName, releaseDate: releaseDate, primaryGenreName: primaryGenreName, artworkUrl100: artworkUrl100)
+                    let artworkUrl100 = flowerJSON["results"][i]["artworkUrl100"].stringValue
+                    let country = flowerJSON["results"][i]["country"].stringValue
+                    let artistName = flowerJSON["results"][i]["artistName"].stringValue
+                    let shortDescription = flowerJSON["results"][i]["shortDescription"].stringValue
+
+                    let film = FilmData(trackCensoredName: trackCensoredName, releaseDate: releaseDate, primaryGenreName: primaryGenreName, artworkUrl100: artworkUrl100, country: country, artistName: artistName, shortDescription: shortDescription)
 
                     receivedFilms.append(film)
                 }
