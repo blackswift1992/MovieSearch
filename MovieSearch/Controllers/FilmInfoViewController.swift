@@ -46,7 +46,7 @@ class FilmInfoViewController: UIViewController {
             countryLabel.text = safeFilmData.country
             genreLabel.text = safeFilmData.primaryGenreName
             directorNameLabel.text = safeFilmData.artistName
-            shortDescriptionLabel.text = safeFilmData.shortDescription
+            shortDescriptionLabel.text = safeFilmData.longDescription
         }
     }
 }

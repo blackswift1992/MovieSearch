@@ -88,12 +88,12 @@ class MainViewController: UITableViewController {
                     let artworkUrl100 = flowerJSON["results"][i]["artworkUrl100"].stringValue
                     let country = flowerJSON["results"][i]["country"].stringValue
                     let artistName = flowerJSON["results"][i]["artistName"].stringValue
-//                    let shortDescription = flowerJSON["results"][i]["shortDescription"].stringValue
-                    let shortDescription = flowerJSON["results"][i]["longDescription"].stringValue
+
+                    let longDescription = flowerJSON["results"][i]["longDescription"].stringValue
                     
                     
 
-                    let film = FilmData(trackCensoredName: trackCensoredName, releaseDate: releaseDate, primaryGenreName: primaryGenreName, artworkUrl100: artworkUrl100, country: country, artistName: artistName, shortDescription: shortDescription)
+                    let film = FilmData(trackCensoredName: trackCensoredName, releaseDate: releaseDate, primaryGenreName: primaryGenreName, artworkUrl100: artworkUrl100, country: country, artistName: artistName, longDescription: longDescription)
 
                     receivedFilms.append(film)
                 }
