@@ -24,4 +24,10 @@ class FilmTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func setFilmData(name: String, year: String, genre: String) {
+        nameLabel.text = name
+        yearLabel.text = year
+        genreLabel.text = genre
+    }
+    
 }

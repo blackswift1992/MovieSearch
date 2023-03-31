@@ -29,6 +29,7 @@
 		492BC27029D2062900693157 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 492BC26F29D2062900693157 /* Assets.xcassets */; };
 		492BC27329D2062900693157 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 492BC27129D2062900693157 /* LaunchScreen.storyboard */; };
 		49432F6C29D5D48700E96D8A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49432F6B29D5D48700E96D8A /* MainViewController.swift */; };
+		49DD1BAD29D6632B00C9E6DA /* FilmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DD1BAC29D6632B00C9E6DA /* FilmData.swift */; };
 		49FBBAF429D2417900BDDA62 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49FBBAF329D2417900BDDA62 /* Colors.xcassets */; };
 		49FBBAF629D243B100BDDA62 /* MainScreens.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49FBBAF529D243B100BDDA62 /* MainScreens.storyboard */; };
 		AD8C38BCEFBDAA44D42D5F70 /* Pods_MovieSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B83AB8FE325113ACAA350338 /* Pods_MovieSearch.framework */; };
@@ -59,6 +60,7 @@
 		492BC27229D2062900693157 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		492BC27429D2062900693157 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49432F6B29D5D48700E96D8A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		49DD1BAC29D6632B00C9E6DA /* FilmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmData.swift; sourceTree = "<group>"; };
 		49FBBAF329D2417900BDDA62 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		49FBBAF529D243B100BDDA62 /* MainScreens.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainScreens.storyboard; sourceTree = "<group>"; };
 		93306FA5B1A7F287F9BC70A7 /* Pods-MovieSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieSearch.release.xcconfig"; path = "Target Support Files/Pods-MovieSearch/Pods-MovieSearch.release.xcconfig"; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			children = (
 				490BD94829D27F12001C21EB /* AppUserData.swift */,
 				490BD94A29D27F34001C21EB /* AppUser.swift */,
+				49DD1BAC29D6632B00C9E6DA /* FilmData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				490BD94E29D2818C001C21EB /* UIImage.swift in Sources */,
 				490BD94329D27590001C21EB /* Constants.swift in Sources */,
 				4913354129D3962B0079F324 /* ProfileViewController.swift in Sources */,
+				49DD1BAD29D6632B00C9E6DA /* FilmData.swift in Sources */,
 				492BC26B29D2062700693157 /* ViewController.swift in Sources */,
 				490BD94B29D27F34001C21EB /* AppUser.swift in Sources */,
 				490BD95229D288B7001C21EB /* String.swift in Sources */,

@@ -6,34 +6,36 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class MainViewController: UITableViewController {
     
-    private let itemArray = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"]
+    private let iTunesSearchApiURL = "https://itunes.apple.com/search"
+    private var allFilms = [FilmData]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: K.TableCell.filmNibName, bundle: nil), forCellReuseIdentifier: K.TableCell.filmNibIdentifier)
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        requestInfo()
     }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return itemArray.count
+        return allFilms.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.TableCell.filmNibIdentifier, for: indexPath)
-
-        cell.textLabel?.text = itemArray[indexPath.row]
-
+        
+        guard let filmCell = cell as? FilmTableViewCell else { return UITableViewCell() }
+        
+        let currentFilm = allFilms[indexPath.row]
+        
+        filmCell.setFilmData(name: currentFilm.trackCensoredName, year: currentFilm.releaseDate, genre: currentFilm.primaryGenreName)
+        
         return cell
     }
     
@@ -43,50 +45,57 @@ class MainViewController: UITableViewController {
         performSegue(withIdentifier: K.Segue.mainToFilmInfo, sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    
+    func requestInfo() {
+//        let parameters : [String:String] = [
+//            "term=" : "romance",
+//            "entity" : "movie",
+//            "attribute" : "genreTerm",
+//            "limit" : "5",
+//        ]
+        
+        let limit = 25
+        
+        let parameters : [String:String] = [
+            "term=" : "",
+            "entity" : "movie",
+            "media" : "movie",
+            "attribute" : "movieTerm",
+            "limit" : String(limit),
+        ]
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+        Alamofire.request(iTunesSearchApiURL, method: .get, parameters: parameters).responseJSON { [weak self] response in
+            switch response.result {
+            case .success(let flower):
+                let flowerJSON = JSON(flower)
+//                print(flowerJSON)
+                
+                self?.allFilms.removeAll()
+                
+                var receivedFilms = [FilmData]()
+                
+                for i in 0..<limit {
+                    let trackCensoredName = flowerJSON["results"][i]["trackCensoredName"].stringValue
+                    
+                    let releaseDate = flowerJSON["results"][i]["releaseDate"].stringValue
+                    
+                    let primaryGenreName = flowerJSON["results"][i]["primaryGenreName"].stringValue
+                    let artworkUrl100 = flowerJSON["results"][i]["artworkUrl100"].stringValue
+                    
+                    let film = FilmData(trackCensoredName: trackCensoredName, releaseDate: releaseDate, primaryGenreName: primaryGenreName, artworkUrl100: artworkUrl100)
+
+                    receivedFilms.append(film)
+                }
+                
+                self?.allFilms = receivedFilms
+                
+                self?.tableView.reloadData()
+                
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
