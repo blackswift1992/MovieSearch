@@ -6,19 +6,20 @@
 //
 
 import UIKit
-import Alamofire
-import SwiftyJSON
-//import SDWebImage
+//import Alamofire
+//import SwiftyJSON
 
 class MainViewController: UITableViewController {
     
-    private let iTunesSearchApiURL = "https://itunes.apple.com/search"
+//    private let iTunesSearchApiURL = "https://itunes.apple.com/search"
+    private let iTunesDataProvider = ITunesDataProvider()
     private var allFilms = [FilmData]()
     private var selectedFilm: FilmData?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: K.TableCell.filmNibName, bundle: nil), forCellReuseIdentifier: K.TableCell.filmNibIdentifier)
+        iTunesDataProvider.delegate = self
         
         requestInfo()
     }
@@ -63,49 +64,25 @@ class MainViewController: UITableViewController {
     
     
     func requestInfo() {
-        let limit = 25
+        allFilms.removeAll()
         
         let parameters : [String:String] = [
             "term=" : "",
             "entity" : "movie",
             "media" : "movie",
             "attribute" : "movieTerm",
-            "limit" : String(limit),
+            "limit" : String(25),
         ]
+        
+        iTunesDataProvider.fetchFilmsData(parameters: parameters)
+    }
+}
 
-        Alamofire.request(iTunesSearchApiURL, method: .get, parameters: parameters).responseJSON { [weak self] response in
-            switch response.result {
-            case .success(let flower):
-                let flowerJSON = JSON(flower)
-                self?.allFilms.removeAll()
-                
-                var receivedFilms = [FilmData]()
-                
-                for i in 0..<limit {
-                    let trackCensoredName = flowerJSON["results"][i]["trackCensoredName"].stringValue
-                    let releaseDate = flowerJSON["results"][i]["releaseDate"].stringValue
-                    let primaryGenreName = flowerJSON["results"][i]["primaryGenreName"].stringValue
-                    let artworkUrl100 = flowerJSON["results"][i]["artworkUrl100"].stringValue
-                    let country = flowerJSON["results"][i]["country"].stringValue
-                    let artistName = flowerJSON["results"][i]["artistName"].stringValue
 
-                    let longDescription = flowerJSON["results"][i]["longDescription"].stringValue
-                    
-                    
 
-                    let film = FilmData(trackCensoredName: trackCensoredName, releaseDate: releaseDate, primaryGenreName: primaryGenreName, artworkUrl100: artworkUrl100, country: country, artistName: artistName, longDescription: longDescription)
-
-                    receivedFilms.append(film)
-                }
-                
-                self?.allFilms = receivedFilms
-                
-                self?.tableView.reloadData()
-                
-                
-            case .failure(let error):
-                print(error)
-            }
-        }
+extension MainViewController: ITunesDataProviderDelegate {
+    func processFetchedFilmsData(_ provider: ITunesDataProvider, filmsData: [FilmData]) {
+        allFilms = filmsData
+        tableView.reloadData()
     }
 }

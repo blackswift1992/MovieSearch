@@ -29,6 +29,7 @@
 		492BC27029D2062900693157 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 492BC26F29D2062900693157 /* Assets.xcassets */; };
 		492BC27329D2062900693157 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 492BC27129D2062900693157 /* LaunchScreen.storyboard */; };
 		49432F6C29D5D48700E96D8A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49432F6B29D5D48700E96D8A /* MainViewController.swift */; };
+		49AA6E4F29D733D700F134CC /* ITunesDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AA6E4E29D733D700F134CC /* ITunesDataProvider.swift */; };
 		49DD1BAD29D6632B00C9E6DA /* FilmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DD1BAC29D6632B00C9E6DA /* FilmData.swift */; };
 		49FBBAF429D2417900BDDA62 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49FBBAF329D2417900BDDA62 /* Colors.xcassets */; };
 		49FBBAF629D243B100BDDA62 /* MainScreens.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49FBBAF529D243B100BDDA62 /* MainScreens.storyboard */; };
@@ -60,6 +61,7 @@
 		492BC27229D2062900693157 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		492BC27429D2062900693157 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49432F6B29D5D48700E96D8A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		49AA6E4E29D733D700F134CC /* ITunesDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesDataProvider.swift; sourceTree = "<group>"; };
 		49DD1BAC29D6632B00C9E6DA /* FilmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmData.swift; sourceTree = "<group>"; };
 		49FBBAF329D2417900BDDA62 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		49FBBAF529D243B100BDDA62 /* MainScreens.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainScreens.storyboard; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				490BD94829D27F12001C21EB /* AppUserData.swift */,
 				490BD94A29D27F34001C21EB /* AppUser.swift */,
 				49DD1BAC29D6632B00C9E6DA /* FilmData.swift */,
+				49AA6E4E29D733D700F134CC /* ITunesDataProvider.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				490BD94129D2754C001C21EB /* WelcomeViewController.swift in Sources */,
 				490420B629D60BAB00AD981B /* FilmTableViewCell.swift in Sources */,
 				4913353F29D3955A0079F324 /* UIColor.swift in Sources */,
+				49AA6E4F29D733D700F134CC /* ITunesDataProvider.swift in Sources */,
 				492BC26729D2062700693157 /* AppDelegate.swift in Sources */,
 				490BD94929D27F12001C21EB /* AppUserData.swift in Sources */,
 				492BC26929D2062700693157 /* SceneDelegate.swift in Sources */,

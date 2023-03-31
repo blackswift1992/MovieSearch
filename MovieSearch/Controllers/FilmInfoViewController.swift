@@ -16,6 +16,7 @@ class FilmInfoViewController: UIViewController {
     @IBOutlet private weak var directorNameLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
     
+    
     private var filmData: FilmData?
     
     override func viewDidLoad() {
@@ -50,3 +51,5 @@ class FilmInfoViewController: UIViewController {
         }
     }
 }
+
+
