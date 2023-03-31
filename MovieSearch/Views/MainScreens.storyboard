@@ -477,6 +477,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="crJ-0H-7Kw"/>
+                    <connections>
+                        <outlet property="countryLabel" destination="WL1-8z-XgH" id="gpU-Xt-Jwt"/>
+                        <outlet property="directorNameLabel" destination="sQu-N9-INZ" id="x28-sm-7pp"/>
+                        <outlet property="filmNameLabel" destination="xs7-Qt-JOv" id="mht-fa-Lxc"/>
+                        <outlet property="genreLabel" destination="mx6-5N-Mn9" id="f2R-2e-i2T"/>
+                        <outlet property="posterImageView" destination="KVS-uY-A3A" id="Jrf-NK-ZvN"/>
+                        <outlet property="shortDescriptionLabel" destination="dfs-Sd-bo2" id="uc7-3u-VgD"/>
+                        <outlet property="yearLabel" destination="6Es-SK-GLH" id="GYJ-r0-2aO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pAv-Dw-gBk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

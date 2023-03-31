@@ -8,17 +8,19 @@
 import UIKit
 
 class FilmInfoViewController: UIViewController {
-
+    @IBOutlet private weak var filmNameLabel: UILabel!
+    @IBOutlet private weak var posterImageView: UIImageView!
+    @IBOutlet private weak var yearLabel: UILabel!
+    @IBOutlet private weak var countryLabel: UILabel!
+    @IBOutlet private weak var genreLabel: UILabel!
+    @IBOutlet private weak var directorNameLabel: UILabel!
+    @IBOutlet private weak var shortDescriptionLabel: UILabel!
     
-    
-    
-    
-    
+    private var filmData: FilmData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+        customizeUIElements()
     }
     
     
@@ -27,14 +29,19 @@ class FilmInfoViewController: UIViewController {
         navigationController?.isNavigationBarHidden = false
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setFilmData(_ data: FilmData) {
+        filmData = data
     }
-    */
-
+    
+    private func customizeUIElements() {
+        if let safeFilmData = filmData {
+            filmNameLabel.text = safeFilmData.trackCensoredName
+            posterImageView.sd_setImage(with: URL(string: safeFilmData.artworkUrl100))
+            yearLabel.text = safeFilmData.releaseDate
+            countryLabel.text = safeFilmData.country
+            genreLabel.text = safeFilmData.primaryGenreName
+            directorNameLabel.text = safeFilmData.artistName
+            shortDescriptionLabel.text = safeFilmData.shortDescription
+        }
+    }
 }

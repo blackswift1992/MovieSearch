@@ -13,5 +13,6 @@ struct FilmData {
     let primaryGenreName: String
     let artworkUrl100: String
     let country: String
+    let artistName: String
     let shortDescription: String
 }
