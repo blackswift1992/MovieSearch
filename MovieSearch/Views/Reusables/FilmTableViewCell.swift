@@ -28,7 +28,7 @@ class FilmTableViewCell: UITableViewCell {
     func setFilmData(name: String, year: String, genre: String, posterURL: String) {
         posterImageView.sd_setImage(with: URL(string: posterURL))
         nameLabel.text = name
-        yearLabel.text = year
+        yearLabel.text = String(year.prefix(4))
         genreLabel.text = genre
     }
     
