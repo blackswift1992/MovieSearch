@@ -49,13 +49,6 @@ class MainViewController: UITableViewController {
     
     
     func requestInfo() {
-//        let parameters : [String:String] = [
-//            "term=" : "romance",
-//            "entity" : "movie",
-//            "attribute" : "genreTerm",
-//            "limit" : "5",
-//        ]
-        
         let limit = 25
         
         let parameters : [String:String] = [
@@ -80,10 +73,9 @@ class MainViewController: UITableViewController {
                     let primaryGenreName = flowerJSON["results"][i]["primaryGenreName"].stringValue
                     let artworkUrl100 = flowerJSON["results"][i]["artworkUrl100"].stringValue
                     let country = flowerJSON["results"][i]["country"].stringValue
-                    let artistName = flowerJSON["results"][i]["artistName"].stringValue
                     let shortDescription = flowerJSON["results"][i]["shortDescription"].stringValue
 
-                    let film = FilmData(trackCensoredName: trackCensoredName, releaseDate: releaseDate, primaryGenreName: primaryGenreName, artworkUrl100: artworkUrl100, country: country, artistName: artistName, shortDescription: shortDescription)
+                    let film = FilmData(trackCensoredName: trackCensoredName, releaseDate: releaseDate, primaryGenreName: primaryGenreName, artworkUrl100: artworkUrl100, country: country, shortDescription: shortDescription)
 
                     receivedFilms.append(film)
                 }
