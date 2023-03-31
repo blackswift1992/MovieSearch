@@ -29,7 +29,7 @@ class FilmInfoViewController: UIViewController {
         navigationController?.isNavigationBarHidden = false
     }
 
-    func setFilmData(_ data: FilmData) {
+    func setFilmData(_ data: FilmData?) {
         filmData = data
     }
     
@@ -37,7 +37,7 @@ class FilmInfoViewController: UIViewController {
         if let safeFilmData = filmData {
             filmNameLabel.text = safeFilmData.trackCensoredName
             posterImageView.sd_setImage(with: URL(string: safeFilmData.artworkUrl100))
-            yearLabel.text = safeFilmData.releaseDate
+            yearLabel.text = String(safeFilmData.releaseDate.prefix(4))  
             countryLabel.text = safeFilmData.country
             genreLabel.text = safeFilmData.primaryGenreName
             directorNameLabel.text = safeFilmData.artistName

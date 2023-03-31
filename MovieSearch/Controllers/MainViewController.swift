@@ -14,6 +14,7 @@ class MainViewController: UITableViewController {
     
     private let iTunesSearchApiURL = "https://itunes.apple.com/search"
     private var allFilms = [FilmData]()
+    private var selectedFilm: FilmData?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +44,21 @@ class MainViewController: UITableViewController {
     // MARK: - Table view delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedFilm = allFilms[indexPath.row]
         performSegue(withIdentifier: K.Segue.mainToFilmInfo, sender: self)
+        selectedFilm = nil
+        
         tableView.deselectRow(at: indexPath, animated: true)
+        
+    }
+    
+    //MARK: -- preparing for segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.Segue.mainToFilmInfo {
+            if let destinationVC = segue.destination as? FilmInfoViewController {
+                    destinationVC.setFilmData(selectedFilm)
+            }
+        }
     }
     
     
@@ -74,7 +88,8 @@ class MainViewController: UITableViewController {
                     let artworkUrl100 = flowerJSON["results"][i]["artworkUrl100"].stringValue
                     let country = flowerJSON["results"][i]["country"].stringValue
                     let artistName = flowerJSON["results"][i]["artistName"].stringValue
-                    let shortDescription = flowerJSON["results"][i]["shortDescription"].stringValue
+//                    let shortDescription = flowerJSON["results"][i]["shortDescription"].stringValue
+                    let shortDescription = flowerJSON["results"][i]["longDescription"].stringValue
                     
                     
 
