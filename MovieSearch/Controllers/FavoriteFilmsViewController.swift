@@ -6,29 +6,35 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FavoriteFilmsViewController: UITableViewController {
-    private var favoriteFilms = [FilmData]()
+    private let realm = try! Realm()
+    
+    private var favoriteFilms: Results<FilmDataRealmObject>?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         registerTableViewNibs()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         fetchFavoriteFilmsFromRealm()
+        tableView.reloadData()
     }
 
     // MARK: -- table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return favoriteFilms.count
+        return favoriteFilms?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.TableCell.filmNibIdentifier, for: indexPath)
         
-        guard let filmCell = cell as? FilmTableViewCell else { return UITableViewCell() }
-        
-        let currentFilm = favoriteFilms[indexPath.row]
+        guard let filmCell = cell as? FilmTableViewCell,
+              let currentFilm = favoriteFilms?[indexPath.row].data
+        else { return UITableViewCell() }
         
         filmCell.setFilmData(currentFilm)
         filmCell.hideStarButton()
@@ -49,9 +55,7 @@ class FavoriteFilmsViewController: UITableViewController {
 
 private extension FavoriteFilmsViewController {
     func fetchFavoriteFilmsFromRealm() {
-        //Type code to fetch favorite films from Realm
-        
-        tableView.reloadData()
+        favoriteFilms = realm.objects(FilmDataRealmObject.self)
     }
 }
 

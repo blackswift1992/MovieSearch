@@ -9,6 +9,7 @@ import UIKit
 import SDWebImage
 import FirebaseAuth
 import FirebaseFirestore
+import RealmSwift
 
 class FilmTableViewCell: UITableViewCell {
     @IBOutlet private weak var posterImageView: UIImageView!
@@ -19,7 +20,7 @@ class FilmTableViewCell: UITableViewCell {
     @IBOutlet private weak var heartButtonView: UIView!
     @IBOutlet private weak var heartButton: UIButton!
     
-    
+    private let realm = try! Realm()
     
     private var filmData: FilmData?
     private var isStarButtonTapped = false
@@ -104,7 +105,7 @@ private extension FilmTableViewCell {
                     if error != nil {
                         print(error!)
                     } else {
-                        self?.saveFilmDataToRealm(filmData)
+                        self?.saveFilmDataToRealm(FilmDataRealmObject(data: filmData))
                     }
                 }
             }
@@ -113,9 +114,13 @@ private extension FilmTableViewCell {
         }
     }
     
-    func saveFilmDataToRealm(_ data: FilmData) {
-        print("qqqqqqqwwwwwwweeeeerrrtttyyy")
+    func saveFilmDataToRealm(_ data: FilmDataRealmObject) {
+        do {
+            try realm.write {
+                realm.add(data, update: .modified)
+            }
+        } catch {
+            print("Error with appUser saving, \(error)")
+        }
     }
-    
-    
 }
