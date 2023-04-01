@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import FirebaseFirestoreSwift
 
-struct FilmData {
+struct FilmData: Codable {
+    let trackId: String
     let trackCensoredName: String
     let releaseDate: String
     let primaryGenreName: String

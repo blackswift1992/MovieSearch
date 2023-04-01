@@ -7,6 +7,8 @@
 
 import UIKit
 import SDWebImage
+import FirebaseAuth
+import FirebaseFirestore
 
 class FilmTableViewCell: UITableViewCell {
     @IBOutlet private weak var posterImageView: UIImageView!
@@ -14,8 +16,10 @@ class FilmTableViewCell: UITableViewCell {
     @IBOutlet private weak var yearLabel: UILabel!
     @IBOutlet private weak var genreLabel: UILabel!
     
-    @IBOutlet weak var starButtonView: UIView!
-    @IBOutlet weak var starImageView: UIImageView!
+    @IBOutlet private weak var heartButtonView: UIView!
+    @IBOutlet private weak var heartButton: UIButton!
+    
+    
     
     private var filmData: FilmData?
     private var isStarButtonTapped = false
@@ -23,10 +27,18 @@ class FilmTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
+    }
+    
+    override func prepareForReuse() {
+        let image = UIImage(systemName: "heart")
+        heartButton.setImage(image, for: .normal)
+        
+        isStarButtonTapped = false
     }
 }
 
@@ -44,7 +56,7 @@ extension FilmTableViewCell {
     }
     
     func hideStarButton() {
-        starButtonView.isHidden = true
+        heartButtonView.isHidden = true
     }
 }
 
@@ -56,11 +68,54 @@ private extension FilmTableViewCell {
     @IBAction func starTapped(_ sender: UIButton) {
         if !isStarButtonTapped && filmData != nil {
             isStarButtonTapped = true
-            starImageView.image = UIImage(systemName: "star.fill")
+            let image = UIImage(systemName: "heart.fill")
+            
+            heartButton.setImage(image, for: .normal)
+            
             print("qqqqqqq")
+            
+            
             
             //записати FilmData в Firebase i потім в Realm
             //для цього в FilmTableViewCell треба передавати цілий об'єкт FilmData
+            if let safeFilmData = filmData {
+                uploadFilmData(safeFilmData)
+            } else {
+                isStarButtonTapped = false
+                
+                let image = UIImage(systemName: "heart")
+                heartButton.setImage(image, for: .normal)
+            }
         }
     }
+}
+
+
+//MARK: - Private methods
+
+
+private extension FilmTableViewCell {
+    func uploadFilmData(_ filmData: FilmData) {
+        guard let safeUserId = Auth.auth().currentUser?.uid else { return }
+        
+        do {
+            try Firestore.firestore().collection(safeUserId + K.FStore.favoriteFilms).document(filmData.trackId).setData(from: filmData) { [weak self] error in
+                DispatchQueue.main.async {
+                    if error != nil {
+                        print(error!)
+                    } else {
+                        self?.saveFilmDataToRealm(filmData)
+                    }
+                }
+            }
+        } catch let error {
+            print("Error writing film data to Firestore: \(error)")
+        }
+    }
+    
+    func saveFilmDataToRealm(_ data: FilmData) {
+        print("qqqqqqqwwwwwwweeeeerrrtttyyy")
+    }
+    
+    
 }

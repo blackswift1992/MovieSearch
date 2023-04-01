@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -102,32 +101,19 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hoJ-3U-i8g">
                                         <rect key="frame" x="0.0" y="30" width="40" height="44"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n56-3F-IaJ">
-                                                <rect key="frame" x="10" y="9.6666666666666679" width="20" height="23.666666666666661"/>
-                                                <color key="tintColor" name="BrandDarkMint"/>
-                                                <imageReference key="image" image="star" catalog="system" renderingMode="hierarchical">
-                                                    <hierarchicalColors>
-                                                        <color name="BrandDarkMint"/>
-                                                        <color name="BrandDarkMint"/>
-                                                        <color name="BrandDarkMint"/>
-                                                    </hierarchicalColors>
-                                                </imageReference>
-                                            </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yt0-i0-DsI">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="44"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system">
+                                                    <color key="baseForegroundColor" name="BrandDarkMint"/>
+                                                </buttonConfiguration>
                                                 <connections>
                                                     <action selector="starTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ASh-Vs-ipl"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="n56-3F-IaJ" secondAttribute="bottom" constant="10" id="0uS-5S-Shw"/>
-                                            <constraint firstItem="n56-3F-IaJ" firstAttribute="leading" secondItem="hoJ-3U-i8g" secondAttribute="leading" constant="10" id="PJP-cV-AIg"/>
                                             <constraint firstAttribute="bottom" secondItem="Yt0-i0-DsI" secondAttribute="bottom" id="Q8T-ii-Nkd"/>
-                                            <constraint firstItem="n56-3F-IaJ" firstAttribute="top" secondItem="hoJ-3U-i8g" secondAttribute="top" constant="10" id="RKH-j3-ku3"/>
-                                            <constraint firstAttribute="trailing" secondItem="n56-3F-IaJ" secondAttribute="trailing" constant="10" id="imm-rr-rhc"/>
                                             <constraint firstAttribute="trailing" secondItem="Yt0-i0-DsI" secondAttribute="trailing" id="mlW-06-Fvh"/>
                                             <constraint firstItem="Yt0-i0-DsI" firstAttribute="leading" secondItem="hoJ-3U-i8g" secondAttribute="leading" id="sX6-QA-Yoh"/>
                                             <constraint firstItem="Yt0-i0-DsI" firstAttribute="top" secondItem="hoJ-3U-i8g" secondAttribute="top" id="ux7-2a-6wx"/>
@@ -159,17 +145,17 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="genreLabel" destination="5na-a6-lPq" id="1vB-Oz-BbO"/>
+                <outlet property="heartButton" destination="Yt0-i0-DsI" id="Nhq-wJ-fi0"/>
+                <outlet property="heartButtonView" destination="hoJ-3U-i8g" id="zbB-AQ-W8f"/>
                 <outlet property="nameLabel" destination="b3t-Mh-U3g" id="raM-Dh-71G"/>
                 <outlet property="posterImageView" destination="980-oH-IaN" id="lZo-Mg-X89"/>
-                <outlet property="starButtonView" destination="hoJ-3U-i8g" id="zbB-AQ-W8f"/>
-                <outlet property="starImageView" destination="n56-3F-IaJ" id="7ho-xZ-sit"/>
                 <outlet property="yearLabel" destination="xOp-y3-U3g" id="qVf-yz-IAK"/>
             </connections>
             <point key="canvasLocation" x="146.56488549618319" y="9.1549295774647899"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="star" catalog="system" width="128" height="116"/>
+        <image name="heart" catalog="system" width="128" height="107"/>
         <namedColor name="BrandDarkMint">
             <color red="0.31799998879432678" green="0.58799999952316284" blue="0.67000001668930054" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

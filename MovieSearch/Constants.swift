@@ -32,7 +32,7 @@ struct K {
 //        static let messagesCollection = "messages"
         static let avatarsCollection = "avatars"
 //
-//        static let userIdField = "userId"
+        static let favoriteFilms = "favoriteFilms"
 //        static let textBodyField = "textBody"
 //        static let isEdited = "isEdited"
 //        static let dateField = "date"

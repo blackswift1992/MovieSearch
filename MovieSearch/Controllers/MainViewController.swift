@@ -38,7 +38,6 @@ class MainViewController: UITableViewController {
         let currentFilm = allFilms[indexPath.row]
         
         filmCell.setFilmData(currentFilm)
-        filmCell.hideStarButton()
         
         return cell
     }

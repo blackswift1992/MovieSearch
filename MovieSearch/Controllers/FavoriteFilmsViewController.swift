@@ -31,6 +31,7 @@ class FavoriteFilmsViewController: UITableViewController {
         let currentFilm = favoriteFilms[indexPath.row]
         
         filmCell.setFilmData(currentFilm)
+        filmCell.hideStarButton()
         
         return cell
     }

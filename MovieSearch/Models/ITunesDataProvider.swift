@@ -37,6 +37,9 @@ extension ITunesDataProvider {
                 guard let resultCount = Int(filmsDataJSON["resultCount"].stringValue) else { return }
                 
                 for i in 0..<resultCount {
+                    
+                    
+                    let trackId = filmsDataJSON["results"][i]["trackId"].stringValue
                     let trackCensoredName = filmsDataJSON["results"][i]["trackCensoredName"].stringValue
                     let releaseDate = filmsDataJSON["results"][i]["releaseDate"].stringValue
                     let primaryGenreName = filmsDataJSON["results"][i]["primaryGenreName"].stringValue
@@ -45,7 +48,7 @@ extension ITunesDataProvider {
                     let artistName = filmsDataJSON["results"][i]["artistName"].stringValue
                     let longDescription = filmsDataJSON["results"][i]["longDescription"].stringValue
                     
-                    let film = FilmData(trackCensoredName: trackCensoredName, releaseDate: releaseDate, primaryGenreName: primaryGenreName, artworkUrl100: artworkUrl100, country: country, artistName: artistName, longDescription: longDescription)
+                    let film = FilmData(trackId: trackId, trackCensoredName: trackCensoredName, releaseDate: releaseDate, primaryGenreName: primaryGenreName, artworkUrl100: artworkUrl100, country: country, artistName: artistName, longDescription: longDescription)
                     
                     fetchedFilmsData.append(film)
                 }

@@ -541,7 +541,7 @@
             </objects>
             <point key="canvasLocation" x="1511.5942028985507" y="2268.75"/>
         </scene>
-        <!--Item-->
+        <!--Favorite-->
         <scene sceneID="idm-Ca-C1N">
             <objects>
                 <tableViewController id="8bl-M3-Auh" customClass="FavoriteFilmsViewController" customModule="MovieSearch" sceneMemberID="viewController">
@@ -564,7 +564,7 @@
                             <outlet property="delegate" destination="8bl-M3-Auh" id="AvJ-zq-5l6"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" image="heart" catalog="system" id="0TB-TY-3ND"/>
+                    <tabBarItem key="tabBarItem" title="Favorite" image="heart" catalog="system" id="0TB-TY-3ND"/>
                     <navigationItem key="navigationItem" id="tB3-ry-tSP"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KCH-i1-PBQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
