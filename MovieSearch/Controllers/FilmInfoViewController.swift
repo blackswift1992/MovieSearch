@@ -30,10 +30,10 @@ class FilmInfoViewController: UIViewController {
         navigationController?.isNavigationBarHidden = false
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = true
-    }
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        navigationController?.isNavigationBarHidden = true
+//    }
 
     func setFilmData(_ data: FilmData?) {
         filmData = data

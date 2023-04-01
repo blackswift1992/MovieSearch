@@ -14,36 +14,36 @@ protocol ITunesDataProviderDelegate: AnyObject {
 }
 
 class ITunesDataProvider {
-    weak var delegate: ITunesDataProviderDelegate?
-
     private let iTunesSearchApiURL = "https://itunes.apple.com/search"
-    let itunesDefaultLimit = "50"
     
+    weak var delegate: ITunesDataProviderDelegate?
+}
+
+
+//MARK: - Public methods
+
+
+extension ITunesDataProvider {
     func fetchFilmsData(parameters : [String:String]){
-        
-        
-        guard let _ = delegate,
-              let limit = Int(parameters["limit"] ?? itunesDefaultLimit) else {
-            return
-        }
-        
         Alamofire.request(iTunesSearchApiURL, method: .get, parameters: parameters).responseJSON { [weak self] response in
             guard let safeSelf = self else { return }
             
             switch response.result {
-            case .success(let flower):
-                let flowerJSON = JSON(flower)
-                
+            case .success(let filmsData):
                 var fetchedFilmsData = [FilmData]()
                 
-                for i in 0..<limit {
-                    let trackCensoredName = flowerJSON["results"][i]["trackCensoredName"].stringValue
-                    let releaseDate = flowerJSON["results"][i]["releaseDate"].stringValue
-                    let primaryGenreName = flowerJSON["results"][i]["primaryGenreName"].stringValue
-                    let artworkUrl100 = flowerJSON["results"][i]["artworkUrl100"].stringValue
-                    let country = flowerJSON["results"][i]["country"].stringValue
-                    let artistName = flowerJSON["results"][i]["artistName"].stringValue
-                    let longDescription = flowerJSON["results"][i]["longDescription"].stringValue
+                let filmsDataJSON = JSON(filmsData)
+
+                guard let resultCount = Int(filmsDataJSON["resultCount"].stringValue) else { return }
+                
+                for i in 0..<resultCount {
+                    let trackCensoredName = filmsDataJSON["results"][i]["trackCensoredName"].stringValue
+                    let releaseDate = filmsDataJSON["results"][i]["releaseDate"].stringValue
+                    let primaryGenreName = filmsDataJSON["results"][i]["primaryGenreName"].stringValue
+                    let artworkUrl100 = filmsDataJSON["results"][i]["artworkUrl100"].stringValue
+                    let country = filmsDataJSON["results"][i]["country"].stringValue
+                    let artistName = filmsDataJSON["results"][i]["artistName"].stringValue
+                    let longDescription = filmsDataJSON["results"][i]["longDescription"].stringValue
                     
                     let film = FilmData(trackCensoredName: trackCensoredName, releaseDate: releaseDate, primaryGenreName: primaryGenreName, artworkUrl100: artworkUrl100, country: country, artistName: artistName, longDescription: longDescription)
                     
@@ -57,4 +57,3 @@ class ITunesDataProvider {
         }
     }
 }
-

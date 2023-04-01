@@ -6,25 +6,23 @@
 //
 
 import UIKit
-//import Alamofire
-//import SwiftyJSON
 
 class MainViewController: UITableViewController {
-    
-//    private let iTunesSearchApiURL = "https://itunes.apple.com/search"
+    private let searchController = UISearchController()
     private let iTunesDataProvider = ITunesDataProvider()
     private var allFilms = [FilmData]()
     private var selectedFilm: FilmData?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UINib(nibName: K.TableCell.filmNibName, bundle: nil), forCellReuseIdentifier: K.TableCell.filmNibIdentifier)
         iTunesDataProvider.delegate = self
         
+        registerTableViewNibs()
+        setUpSearchController()
         requestInfo()
     }
 
-    // MARK: - Table view data source
+    // MARK: -- table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allFilms.count
@@ -42,7 +40,7 @@ class MainViewController: UITableViewController {
         return cell
     }
     
-    // MARK: - Table view delegate
+    // MARK: -- table view delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedFilm = allFilms[indexPath.row]
@@ -61,28 +59,81 @@ class MainViewController: UITableViewController {
             }
         }
     }
-    
-    
-    func requestInfo() {
-        allFilms.removeAll()
-        
-        let parameters : [String:String] = [
-            "term=" : "",
-            "entity" : "movie",
-            "media" : "movie",
-            "attribute" : "movieTerm",
-            "limit" : String(25),
-        ]
-        
-        iTunesDataProvider.fetchFilmsData(parameters: parameters)
-    }
 }
 
 
+//MARK: - Protocols
+
+
+
+//MARK: -- ITunesDataProviderDelegate
 
 extension MainViewController: ITunesDataProviderDelegate {
     func processFetchedFilmsData(_ provider: ITunesDataProvider, filmsData: [FilmData]) {
         allFilms = filmsData
         tableView.reloadData()
+    }
+}
+
+//MARK: -- UISearchResultsUpdating
+
+extension MainViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+        if !text.isEmpty {
+            let parameters = getRequestParameters(byFilmName: text, limit: 20)
+            iTunesDataProvider.fetchFilmsData(parameters: parameters)
+        } else {
+            let parameters = getRequestParameters(byFilmName: K.Case.emptyString, limit: 20)
+            iTunesDataProvider.fetchFilmsData(parameters: parameters)
+        }
+    }
+}
+
+
+//MARK: - UISearchBarDelegate
+
+
+extension MainViewController: UISearchBarDelegate  {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {}
+}
+
+
+//MARK: - Private methods
+
+
+private extension MainViewController {
+    func requestInfo() {
+        let parameters = getRequestParameters(byFilmName: K.Case.emptyString, limit: 20)
+        iTunesDataProvider.fetchFilmsData(parameters: parameters)
+    }
+    
+    func getRequestParameters(byFilmName name: String, limit: Int) -> [String:String] {
+        let parameters : [String:String] = [
+            "term" : name,
+            "entity" : "movie",
+            "media" : "movie",
+            "attribute" : "movieTerm",
+            "limit" : String(limit)
+        ]
+        
+        return parameters
+    }
+}
+
+
+//MARK: - Set up methods
+
+
+private extension MainViewController {
+    func setUpSearchController() {
+        searchController.searchBar.delegate = self
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.tintColor = .white
+        navigationItem.searchController = searchController
+    }
+    
+    func registerTableViewNibs() {
+        tableView.register(UINib(nibName: K.TableCell.filmNibName, bundle: nil), forCellReuseIdentifier: K.TableCell.filmNibIdentifier)
     }
 }
