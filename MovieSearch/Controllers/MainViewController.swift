@@ -12,6 +12,8 @@ class MainViewController: UITableViewController {
     private let iTunesDataProvider = ITunesDataProvider()
     private var allFilms = [FilmData]()
     private var selectedFilm: FilmData?
+    
+    private var timer: Timer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,21 +77,6 @@ extension MainViewController: ITunesDataProviderDelegate {
     }
 }
 
-//MARK: -- UISearchResultsUpdating
-
-extension MainViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let text = searchController.searchBar.text else { return }
-        if !text.isEmpty {
-            let parameters = getRequestParameters(byFilmName: text, limit: 20)
-            iTunesDataProvider.fetchFilmsData(parameters: parameters)
-        } else {
-            let parameters = getRequestParameters(byFilmName: K.Case.emptyString, limit: 20)
-            iTunesDataProvider.fetchFilmsData(parameters: parameters)
-        }
-    }
-}
-
 
 //MARK: - UISearchBarDelegate
 
@@ -119,6 +106,24 @@ private extension MainViewController {
         
         return parameters
     }
+    
+    @objc func textDidChange() {
+        timer?.invalidate()
+
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { [weak self] _ in
+            guard let searchText = self?.searchController.searchBar.searchTextField.text,
+                  let safeSelf = self
+            else { return }
+            
+            if !searchText.isEmpty {
+                let parameters = safeSelf.getRequestParameters(byFilmName: searchText, limit: 50)
+                safeSelf.iTunesDataProvider.fetchFilmsData(parameters: parameters)
+            } else {
+                let parameters = safeSelf.getRequestParameters(byFilmName: K.Case.emptyString, limit: 50)
+                safeSelf.iTunesDataProvider.fetchFilmsData(parameters: parameters)
+            }
+        }
+    }
 }
 
 
@@ -128,9 +133,10 @@ private extension MainViewController {
 private extension MainViewController {
     func setUpSearchController() {
         searchController.searchBar.delegate = self
-        searchController.searchResultsUpdater = self
         searchController.searchBar.tintColor = .white
         navigationItem.searchController = searchController
+        
+        searchController.searchBar.searchTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
     }
     
     func registerTableViewNibs() {
