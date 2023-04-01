@@ -37,7 +37,8 @@ class MainViewController: UITableViewController {
         
         let currentFilm = allFilms[indexPath.row]
         
-        filmCell.setFilmData(name: currentFilm.trackCensoredName, year: currentFilm.releaseDate, genre: currentFilm.primaryGenreName, posterURL: currentFilm.artworkUrl100)
+        filmCell.setFilmData(currentFilm)
+        filmCell.hideStarButton()
         
         return cell
     }

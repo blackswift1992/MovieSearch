@@ -30,7 +30,7 @@ class FavoriteFilmsViewController: UITableViewController {
         
         let currentFilm = favoriteFilms[indexPath.row]
         
-        filmCell.setFilmData(name: currentFilm.trackCensoredName, year: currentFilm.releaseDate, genre: currentFilm.primaryGenreName, posterURL: currentFilm.artworkUrl100)
+        filmCell.setFilmData(currentFilm)
         
         return cell
     }
