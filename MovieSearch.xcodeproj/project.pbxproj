@@ -24,10 +24,10 @@
 		491BD05F29D4E63300C1EEB7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 491BD05E29D4E63300C1EEB7 /* GoogleService-Info.plist */; };
 		492BC26729D2062700693157 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492BC26629D2062700693157 /* AppDelegate.swift */; };
 		492BC26929D2062700693157 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492BC26829D2062700693157 /* SceneDelegate.swift */; };
-		492BC26B29D2062700693157 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492BC26A29D2062700693157 /* ViewController.swift */; };
 		492BC26E29D2062700693157 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 492BC26C29D2062700693157 /* Main.storyboard */; };
 		492BC27029D2062900693157 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 492BC26F29D2062900693157 /* Assets.xcassets */; };
 		492BC27329D2062900693157 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 492BC27129D2062900693157 /* LaunchScreen.storyboard */; };
+		4938993C29D808EB00B4BF43 /* FavoriteFilmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4938993B29D808EB00B4BF43 /* FavoriteFilmsViewController.swift */; };
 		49432F6C29D5D48700E96D8A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49432F6B29D5D48700E96D8A /* MainViewController.swift */; };
 		49AA6E4F29D733D700F134CC /* ITunesDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AA6E4E29D733D700F134CC /* ITunesDataProvider.swift */; };
 		49DD1BAD29D6632B00C9E6DA /* FilmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DD1BAC29D6632B00C9E6DA /* FilmData.swift */; };
@@ -55,11 +55,11 @@
 		492BC26329D2062700693157 /* MovieSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		492BC26629D2062700693157 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		492BC26829D2062700693157 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		492BC26A29D2062700693157 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		492BC26D29D2062700693157 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		492BC26F29D2062900693157 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		492BC27229D2062900693157 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		492BC27429D2062900693157 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4938993B29D808EB00B4BF43 /* FavoriteFilmsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteFilmsViewController.swift; sourceTree = "<group>"; };
 		49432F6B29D5D48700E96D8A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		49AA6E4E29D733D700F134CC /* ITunesDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesDataProvider.swift; sourceTree = "<group>"; };
 		49DD1BAC29D6632B00C9E6DA /* FilmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmData.swift; sourceTree = "<group>"; };
@@ -162,14 +162,14 @@
 		49FBBAF929D26CC200BDDA62 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				492BC26A29D2062700693157 /* ViewController.swift */,
 				490BD94029D2754C001C21EB /* WelcomeViewController.swift */,
 				490BD94429D2791B001C21EB /* SignUpViewController.swift */,
 				490BD94629D27CB1001C21EB /* LogInViewController.swift */,
 				490BD94F29D2886F001C21EB /* NewUserDataViewController.swift */,
-				4913354029D3962B0079F324 /* ProfileViewController.swift */,
 				49432F6B29D5D48700E96D8A /* MainViewController.swift */,
 				490420B129D6082500AD981B /* FilmInfoViewController.swift */,
+				4938993B29D808EB00B4BF43 /* FavoriteFilmsViewController.swift */,
+				4913354029D3962B0079F324 /* ProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -316,7 +316,6 @@
 				490BD94329D27590001C21EB /* Constants.swift in Sources */,
 				4913354129D3962B0079F324 /* ProfileViewController.swift in Sources */,
 				49DD1BAD29D6632B00C9E6DA /* FilmData.swift in Sources */,
-				492BC26B29D2062700693157 /* ViewController.swift in Sources */,
 				490BD94B29D27F34001C21EB /* AppUser.swift in Sources */,
 				490BD95229D288B7001C21EB /* String.swift in Sources */,
 				490BD94729D27CB1001C21EB /* LogInViewController.swift in Sources */,
@@ -324,6 +323,7 @@
 				490420B229D6082500AD981B /* FilmInfoViewController.swift in Sources */,
 				490BD94129D2754C001C21EB /* WelcomeViewController.swift in Sources */,
 				490420B629D60BAB00AD981B /* FilmTableViewCell.swift in Sources */,
+				4938993C29D808EB00B4BF43 /* FavoriteFilmsViewController.swift in Sources */,
 				4913353F29D3955A0079F324 /* UIColor.swift in Sources */,
 				49AA6E4F29D733D700F134CC /* ITunesDataProvider.swift in Sources */,
 				492BC26729D2062700693157 /* AppDelegate.swift in Sources */,

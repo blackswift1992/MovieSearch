@@ -16,7 +16,6 @@ class FilmInfoViewController: UIViewController {
     @IBOutlet private weak var directorNameLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
     
-    
     private var filmData: FilmData?
     
     override func viewDidLoad() {
@@ -24,22 +23,26 @@ class FilmInfoViewController: UIViewController {
         customizeUIElements()
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = false
     }
-    
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        navigationController?.isNavigationBarHidden = true
-//    }
+}
 
+//MARK: - Public methods
+
+extension FilmInfoViewController {
     func setFilmData(_ data: FilmData?) {
         filmData = data
     }
-    
-    private func customizeUIElements() {
+}
+
+
+//MARK: - Set up methods
+
+
+private extension FilmInfoViewController {
+    func customizeUIElements() {
         if let safeFilmData = filmData {
             filmNameLabel.text = safeFilmData.trackCensoredName
             posterImageView.sd_setImage(with: URL(string: safeFilmData.artworkUrl100))
@@ -51,5 +54,3 @@ class FilmInfoViewController: UIViewController {
         }
     }
 }
-
-

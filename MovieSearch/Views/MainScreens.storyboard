@@ -11,22 +11,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Вибране-->
-        <scene sceneID="CEJ-ys-chE">
-            <objects>
-                <viewController id="sYr-ys-fNm" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ZdC-E3-wwr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="7dZ-dl-cCA"/>
-                        <color key="backgroundColor" red="0.76142485500000001" green="1" blue="0.95914973699999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Вибране" image="heart" catalog="system" selectedImage="heart" id="Q5S-Kq-cXs"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Pkp-bE-uqw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2670" y="2269"/>
-        </scene>
         <!--Профіль-->
         <scene sceneID="Z4k-A5-e8R">
             <objects>
@@ -529,7 +513,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="UqO-nQ-2hv" kind="relationship" relationship="viewControllers" id="2Fg-Jq-tbh"/>
-                        <segue destination="sYr-ys-fNm" kind="relationship" relationship="viewControllers" id="82V-JJ-WNj"/>
+                        <segue destination="8bl-M3-Auh" kind="relationship" relationship="viewControllers" id="4M5-Il-aUz"/>
                         <segue destination="m5j-BS-VG0" kind="relationship" relationship="viewControllers" id="hxY-Gx-Yji"/>
                     </connections>
                 </tabBarController>
@@ -556,6 +540,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LPR-li-NbF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1511.5942028985507" y="2268.75"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="idm-Ca-C1N">
+            <objects>
+                <tableViewController id="8bl-M3-Auh" customClass="FavoriteFilmsViewController" customModule="MovieSearch" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="YX3-Tf-8ve">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="BrandGray6"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FilmCell" id="uro-sh-5cX">
+                                <rect key="frame" x="0.0" y="50" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uro-sh-5cX" id="joL-ib-0wd">
+                                    <rect key="frame" x="0.0" y="0.0" width="383.5" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="8bl-M3-Auh" id="vRc-l6-hTQ"/>
+                            <outlet property="delegate" destination="8bl-M3-Auh" id="AvJ-zq-5l6"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Item" image="heart" catalog="system" id="0TB-TY-3ND"/>
+                    <navigationItem key="navigationItem" id="tB3-ry-tSP"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KCH-i1-PBQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2670" y="2269"/>
         </scene>
     </scenes>
     <resources>
