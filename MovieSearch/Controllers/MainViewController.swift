@@ -82,7 +82,10 @@ extension MainViewController: ITunesDataProviderDelegate {
 
 
 extension MainViewController: UISearchBarDelegate  {
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {}
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        let parameters = getRequestParameters(byFilmName: K.Case.emptyString, limit: 50)
+        iTunesDataProvider.fetchFilmsData(parameters: parameters)
+    }
 }
 
 
@@ -91,7 +94,7 @@ extension MainViewController: UISearchBarDelegate  {
 
 private extension MainViewController {
     func requestInfo() {
-        let parameters = getRequestParameters(byFilmName: K.Case.emptyString, limit: 20)
+        let parameters = getRequestParameters(byFilmName: K.Case.emptyString, limit: 50)
         iTunesDataProvider.fetchFilmsData(parameters: parameters)
     }
     
@@ -118,10 +121,11 @@ private extension MainViewController {
             if !searchText.isEmpty {
                 let parameters = safeSelf.getRequestParameters(byFilmName: searchText, limit: 50)
                 safeSelf.iTunesDataProvider.fetchFilmsData(parameters: parameters)
-            } else {
-                let parameters = safeSelf.getRequestParameters(byFilmName: K.Case.emptyString, limit: 50)
-                safeSelf.iTunesDataProvider.fetchFilmsData(parameters: parameters)
+                return
             }
+            
+            let parameters = safeSelf.getRequestParameters(byFilmName: K.Case.emptyString, limit: 50)
+            safeSelf.iTunesDataProvider.fetchFilmsData(parameters: parameters)
         }
     }
 }
