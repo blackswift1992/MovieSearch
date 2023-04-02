@@ -7,7 +7,6 @@
 
 import UIKit
 import FirebaseAuth
-import RealmSwift
 
 class ProfileViewController: UIViewController {
     @IBOutlet private weak var logOutView: UIView!
@@ -18,7 +17,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet private weak var firstNameLabel: UILabel!
     @IBOutlet private weak var lastNameLabel: UILabel!
     
-    private let realm = try! Realm()
+    private let realmManager = RealmManager()
     
     private var appUser: AppUserDataContainer?
     
@@ -48,21 +47,11 @@ private extension ProfileViewController {
     func logOut() {
         do {
             try Auth.auth().signOut()
-            deleteAllAppUsersInRealm()
+            realmManager.deleteAllInRealm()
             navigateToWelcome()
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)
             navigateToWelcome()
-        }
-    }
-    
-    func deleteAllAppUsersInRealm() {
-        do {
-            try realm.write {
-                realm.deleteAll()
-            }
-        } catch {
-            print("Error with appUser saving, \(error)")
         }
     }
     
@@ -71,7 +60,7 @@ private extension ProfileViewController {
     }
     
     func loadAppUserFromRealm() {
-        appUser = realm.object(ofType: AppUserDataContainer.self, forPrimaryKey: 1)
+        appUser = realmManager.fetchAppUserFromRealm()
     }
 }
 

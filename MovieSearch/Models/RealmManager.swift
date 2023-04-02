@@ -56,11 +56,23 @@ class RealmManager {
         return result
     }
     
+    func fetchAppUserFromRealm() -> AppUserDataContainer? {
+        return realm.object(ofType: AppUserDataContainer.self, forPrimaryKey: 1)
+    }
+    
     func checkIsFavorite(filmId: String) -> Bool {
         let filmDataRealmobject = realm.objects(FilmDataContainer.self).filter("data.trackId == '\(filmId)'").first
         return filmDataRealmobject != nil
     }
     
-    
+    func deleteAllInRealm() {
+        do {
+            try realm.write {
+                realm.deleteAll()
+            }
+        } catch {
+            print("Error with all data deleting, \(error)")
+        }
+    }
 }
 
