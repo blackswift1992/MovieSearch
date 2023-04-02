@@ -11,6 +11,7 @@ class FavoriteFilmsViewController: UITableViewController {
     private let realmManager = RealmManager()
     
     private var favoriteFilms: [FilmDataContainer]?
+    private var selectedFilm: FilmData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +43,20 @@ class FavoriteFilmsViewController: UITableViewController {
     
     // MARK: -- table view delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedFilm = favoriteFilms?[indexPath.row].data
+        performSegue(withIdentifier: K.Segue.favoriteFilmsToFilmInfo, sender: self)
+        selectedFilm = nil
+        
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    //MARK: -- preparing for segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.Segue.favoriteFilmsToFilmInfo {
+            if let destinationVC = segue.destination as? FilmInfoViewController {
+                    destinationVC.setFilmData(selectedFilm)
+            }
+        }
     }
 }
 

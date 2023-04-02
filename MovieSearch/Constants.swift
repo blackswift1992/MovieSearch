@@ -15,6 +15,8 @@ struct K {
         static let logInToMainScreens = "LogInToMainScreens"
         static let newUserDataToMainScreens = "NewUserDataToMainScreens"
         static let mainToFilmInfo = "MainToFilmInfo"
+        static let favoriteFilmsToFilmInfo = "FavoriteFilmsToFilmInfo"
+        
     }
 
     

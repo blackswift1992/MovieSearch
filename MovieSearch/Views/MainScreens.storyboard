@@ -234,7 +234,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sll-qm-tfS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3835" y="2269"/>
+            <point key="canvasLocation" x="4744.927536231884" y="2268.75"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="bvn-ex-Gho">
@@ -498,7 +498,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pAv-Dw-gBk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1511.5942028985507" y="3697.7678571428569"/>
+            <point key="canvasLocation" x="2083" y="3706"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="qYR-AK-ybJ">
@@ -513,7 +513,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="UqO-nQ-2hv" kind="relationship" relationship="viewControllers" id="2Fg-Jq-tbh"/>
-                        <segue destination="8bl-M3-Auh" kind="relationship" relationship="viewControllers" id="4M5-Il-aUz"/>
+                        <segue destination="kcj-0e-OcX" kind="relationship" relationship="viewControllers" id="4M5-Il-aUz"/>
                         <segue destination="m5j-BS-VG0" kind="relationship" relationship="viewControllers" id="hxY-Gx-Yji"/>
                     </connections>
                 </tabBarController>
@@ -541,7 +541,7 @@
             </objects>
             <point key="canvasLocation" x="1511.5942028985507" y="2268.75"/>
         </scene>
-        <!--Favorite-->
+        <!--Favorite Films View Controller-->
         <scene sceneID="idm-Ca-C1N">
             <objects>
                 <tableViewController id="8bl-M3-Auh" customClass="FavoriteFilmsViewController" customModule="MovieSearch" sceneMemberID="viewController">
@@ -564,14 +564,39 @@
                             <outlet property="delegate" destination="8bl-M3-Auh" id="AvJ-zq-5l6"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Favorite" image="heart" catalog="system" id="0TB-TY-3ND"/>
                     <navigationItem key="navigationItem" id="tB3-ry-tSP"/>
+                    <connections>
+                        <segue destination="Pj1-Pg-BQo" kind="show" identifier="FavoriteFilmsToFilmInfo" id="HCp-do-tiU"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KCH-i1-PBQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2670" y="2269"/>
+            <point key="canvasLocation" x="2670" y="2977"/>
+        </scene>
+        <!--Favorite-->
+        <scene sceneID="sYC-mN-VXr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kcj-0e-OcX" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorite" image="heart" catalog="system" id="0TB-TY-3ND"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tYm-cZ-HJ1">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="BrandMint"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8bl-M3-Auh" kind="relationship" relationship="rootViewController" id="PpD-RX-mbj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="24m-qV-B1g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2669.5652173913045" y="2268.75"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="HCp-do-tiU"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="DefaultSingleAvatar" width="576" height="576"/>
         <image name="heart" catalog="system" width="128" height="107"/>
