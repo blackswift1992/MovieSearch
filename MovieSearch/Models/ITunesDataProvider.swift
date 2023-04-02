@@ -24,7 +24,7 @@ class ITunesDataProvider {
 
 
 extension ITunesDataProvider {
-    func fetchFilmsData(parameters : [String:String]){
+    func fetchFilmsData(parameters : [String:String]) {
         Alamofire.request(iTunesSearchApiURL, method: .get, parameters: parameters).responseJSON { [weak self] response in
             guard let safeSelf = self else { return }
             
@@ -37,8 +37,6 @@ extension ITunesDataProvider {
                 guard let resultCount = Int(filmsDataJSON["resultCount"].stringValue) else { return }
                 
                 for i in 0..<resultCount {
-                    
-                    
                     let trackId = filmsDataJSON["results"][i]["trackId"].stringValue
                     let trackCensoredName = filmsDataJSON["results"][i]["trackCensoredName"].stringValue
                     let releaseDate = filmsDataJSON["results"][i]["releaseDate"].stringValue

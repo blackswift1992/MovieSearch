@@ -19,6 +19,7 @@ class FilmData: Object, Codable {
     @Persisted var artistName: String
     @Persisted var longDescription: String
     
+    
     convenience init(trackId: String, trackCensoredName: String, releaseDate: String, primaryGenreName: String, artworkUrl100: String, country: String, artistName: String, longDescription: String) {
         self.init()
         self.trackId = trackId

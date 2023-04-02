@@ -23,13 +23,12 @@ class FilmTableViewCell: UITableViewCell {
     private let realm = try! Realm()
     
     private var filmData: FilmData?
-    private var isStarButtonTapped = false
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
@@ -38,8 +37,6 @@ class FilmTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         let image = UIImage(systemName: "heart")
         heartButton.setImage(image, for: .normal)
-        
-        isStarButtonTapped = false
     }
 }
 
@@ -73,21 +70,12 @@ extension FilmTableViewCell {
 
 private extension FilmTableViewCell {
     @IBAction func starTapped(_ sender: UIButton) {
-        if !isStarButtonTapped && filmData != nil {
-            isStarButtonTapped = true
-            let image = UIImage(systemName: "heart.fill")
-            
-            heartButton.setImage(image, for: .normal)
-            
-            //записати FilmData в Firebase i потім в Realm
-            //для цього в FilmTableViewCell треба передавати цілий об'єкт FilmData
-            if let safeFilmData = filmData {
-                uploadFilmData(safeFilmData)
-            } else {
-                isStarButtonTapped = false
-                
-                let image = UIImage(systemName: "heart")
+        if let safeFilmData = filmData {
+            if !checkIsFavorite(filmId: safeFilmData.trackId) {
+                let image = UIImage(systemName: "heart.fill")
                 heartButton.setImage(image, for: .normal)
+                
+                uploadFilmData(safeFilmData)
             }
         }
     }
@@ -104,15 +92,18 @@ private extension FilmTableViewCell {
         do {
             try Firestore.firestore().collection(safeUserId + K.FStore.favoriteFilms).document(filmData.trackId).setData(from: filmData) { [weak self] error in
                 DispatchQueue.main.async {
-                    if error != nil {
-                        print(error!)
+                    if let safeError = error {
+                        print(safeError)
                     } else {
                         self?.saveFilmDataToRealm(FilmDataRealmObject(data: filmData))
                     }
                 }
             }
         } catch let error {
-            print("Error writing film data to Firestore: \(error)")
+            let image = UIImage(systemName: "heart")
+            heartButton.setImage(image, for: .normal)
+            
+            print("Error with favorite film data saving to Firestore: \(error)")
         }
     }
     
@@ -122,7 +113,10 @@ private extension FilmTableViewCell {
                 realm.add(data, update: .modified)
             }
         } catch {
-            print("Error with appUser saving, \(error)")
+            let image = UIImage(systemName: "heart")
+            heartButton.setImage(image, for: .normal)
+            
+            print("Error with favorite film data saving to Realm, \(error)")
         }
     }
     

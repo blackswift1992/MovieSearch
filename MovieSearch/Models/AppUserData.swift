@@ -16,6 +16,7 @@ class AppUserData: Object, Codable {
     @Persisted var lastName: String
     @Persisted var avatarURL: String
     
+    
     convenience init(userId: String, userEmail: String, firstName: String, lastName: String, avatarURL: String) {
         self.init()
         self.userId = userId

@@ -8,10 +8,11 @@
 import Foundation
 import RealmSwift
 
-
 class FilmDataRealmObject: Object {
     @Persisted(primaryKey: true) var _id: String
+    
     @Persisted var data: FilmData?
+    
     
     convenience init(data: FilmData) {
         self.init()

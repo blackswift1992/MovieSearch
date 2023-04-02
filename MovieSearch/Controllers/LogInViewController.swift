@@ -91,12 +91,7 @@ private extension LogInViewController {
                     let chatUserData = try document.data(as: AppUserData.self)
                     
                     let defaultAvatarData = UIImage.defaultAvatar?.pngData()
-                    
                     self?.appUser = AppUser(data: chatUserData, avatar: defaultAvatarData)
-                    
-                    //В ChatUser додати клас FavoriteFilms
-                    //Витягнути з Firebase дані про favorite films і записати їх в об'єкт FavoriteFilms об'єкта chatSender і вже після цього викликати метод
-                    //self?.downloadAvatar(with: chatUserData.avatarURL)
                     
                     self?.downloadAvatar(with: chatUserData.avatarURL)
                 }

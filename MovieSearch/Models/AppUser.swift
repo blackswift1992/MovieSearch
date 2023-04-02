@@ -14,6 +14,7 @@ class AppUser: Object {
     @Persisted var data: AppUserData?
     @Persisted var avatar: Data?
     
+    
     convenience init(data: AppUserData, avatar: Data? = nil) {
         self.init()
         self.data = data
