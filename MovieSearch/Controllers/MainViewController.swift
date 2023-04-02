@@ -78,7 +78,7 @@ extension MainViewController: ITunesDataProviderDelegate {
 
 extension MainViewController: UISearchBarDelegate  {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        let parameters = getRequestParameters(byFilmName: K.Case.emptyString, limit: 50)
+        let parameters = getRequestParameters(byFilmName: K.Case.emptyString)
         iTunesDataProvider.fetchFilmsData(parameters: parameters)
     }
 }
@@ -89,18 +89,21 @@ extension MainViewController: UISearchBarDelegate  {
 
 private extension MainViewController {
     func requestInfo() {
-        let parameters = getRequestParameters(byFilmName: K.Case.emptyString, limit: 50)
+        let parameters = getRequestParameters(byFilmName: K.Case.emptyString)
         iTunesDataProvider.fetchFilmsData(parameters: parameters)
     }
     
-    func getRequestParameters(byFilmName name: String, limit: Int) -> [String:String] {
-        let parameters : [String:String] = [
+    func getRequestParameters(byFilmName name: String, limit: Int? = K.ITunesDataApi.defaultLimit) -> [String:String] {
+        var parameters : [String:String] = [
             "term" : name,
             "entity" : "movie",
             "media" : "movie",
-            "attribute" : "movieTerm",
-            "limit" : String(limit)
+            "attribute" : "movieTerm"
         ]
+        
+        if let safeLimit = limit {
+            parameters["limit"] = String(safeLimit)
+        }
         
         return parameters
     }
@@ -114,12 +117,12 @@ private extension MainViewController {
             else { return }
             
             if !searchText.isEmpty {
-                let parameters = safeSelf.getRequestParameters(byFilmName: searchText, limit: 50)
+                let parameters = safeSelf.getRequestParameters(byFilmName: searchText)
                 safeSelf.iTunesDataProvider.fetchFilmsData(parameters: parameters)
                 return
             }
             
-            let parameters = safeSelf.getRequestParameters(byFilmName: K.Case.emptyString, limit: 50)
+            let parameters = safeSelf.getRequestParameters(byFilmName: K.Case.emptyString)
             safeSelf.iTunesDataProvider.fetchFilmsData(parameters: parameters)
         }
     }

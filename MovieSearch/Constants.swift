@@ -19,11 +19,14 @@ struct K {
         
     }
 
-    
     struct FStore {
         static let usersCollection = "users"
         static let avatarsCollection = "avatars"
         static let favoriteFilms = "favoriteFilms"
+    }
+    
+    struct ITunesDataApi {
+        static let defaultLimit = 50
     }
 
 
