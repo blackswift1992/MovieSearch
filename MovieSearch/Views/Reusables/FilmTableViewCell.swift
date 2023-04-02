@@ -35,7 +35,7 @@ class FilmTableViewCell: UITableViewCell {
     }
     
     override func prepareForReuse() {
-        let image = UIImage(systemName: "heart")
+        let image = UIImage.heart
         heartButton.setImage(image, for: .normal)
     }
 }
@@ -53,7 +53,7 @@ extension FilmTableViewCell {
         genreLabel.text = data.primaryGenreName
         
         if checkIsFavorite(filmId: data.trackId) {
-            let image = UIImage(systemName: "heart.fill")
+            let image = UIImage.heartFill
             heartButton.setImage(image, for: .normal)
         }
     }
@@ -71,7 +71,7 @@ private extension FilmTableViewCell {
     @IBAction func heartTapped(_ sender: UIButton) {
         if let safeFilmData = filmData {
             if !checkIsFavorite(filmId: safeFilmData.trackId) {
-                let image = UIImage(systemName: "heart.fill")
+                let image = UIImage.heartFill
                 heartButton.setImage(image, for: .normal)
                 
                 uploadFilmData(safeFilmData)
@@ -119,7 +119,7 @@ private extension FilmTableViewCell {
     }
     
     func failedToFilmDataAddingToRealm(withMessage message: String) {
-        let image = UIImage(systemName: "heart")
+        let image = UIImage.heart
         heartButton.setImage(image, for: .normal)
         
         print("Error with favorite film data saving to Realm, \(message)")

@@ -9,5 +9,6 @@ import UIKit
 
 extension UIImage {
     static let defaultAvatar = UIImage(named: "DefaultSingleAvatar")
-    static let textfieldImage = UIImage(named: "textfield")
+    static let heartFill = UIImage(systemName: "heart.fill")
+    static let heart = UIImage(systemName: "heart")
 }
