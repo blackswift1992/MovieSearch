@@ -9,12 +9,13 @@ import UIKit
 
 class MainViewController: UITableViewController {
     private let searchController = UISearchController()
+    
     private let iTunesDataProvider = ITunesDataProvider()
     private var allFilms = [FilmData]()
     private var selectedFilm: FilmData?
-    
     private var timer: Timer?
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         iTunesDataProvider.delegate = self
@@ -25,32 +26,27 @@ class MainViewController: UITableViewController {
     }
 
     // MARK: -- table view data source
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allFilms.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.TableCell.filmNibIdentifier, for: indexPath)
-        
         guard let filmCell = cell as? FilmTableViewCell else { return UITableViewCell() }
         
-        let currentFilm = allFilms[indexPath.row]
-        
-        filmCell.setFilmData(currentFilm)
+        let film = allFilms[indexPath.row]
+        filmCell.setFilmData(film)
         
         return cell
     }
     
     // MARK: -- table view delegate
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedFilm = allFilms[indexPath.row]
         performSegue(withIdentifier: K.Segue.mainToFilmInfo, sender: self)
         selectedFilm = nil
         
         tableView.deselectRow(at: indexPath, animated: true)
-        
     }
     
     //MARK: -- preparing for segue
@@ -69,7 +65,6 @@ class MainViewController: UITableViewController {
 
 
 //MARK: -- ITunesDataProviderDelegate
-
 extension MainViewController: ITunesDataProviderDelegate {
     func processFetchedFilmsData(_ provider: ITunesDataProvider, filmsData: [FilmData]) {
         allFilms = filmsData
