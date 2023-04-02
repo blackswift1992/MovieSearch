@@ -10,11 +10,12 @@ import RealmSwift
 
 
 class FilmDataRealmObject: Object {
-    @Persisted(primaryKey: true) var _id: ObjectId
+    @Persisted(primaryKey: true) var _id: String
     @Persisted var data: FilmData?
     
     convenience init(data: FilmData) {
         self.init()
+        self._id = data.trackId
         self.data = data
     }
 }

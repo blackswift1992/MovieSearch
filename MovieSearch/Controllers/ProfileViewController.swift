@@ -58,7 +58,7 @@ private extension ProfileViewController {
     func deleteAllAppUsersInRealm() {
         do {
             try realm.write {
-//                realm.deleteAll()   //розкоментувати
+                realm.deleteAll()   //розкоментувати
             }
         } catch {
             print("Error with appUser saving, \(error)")

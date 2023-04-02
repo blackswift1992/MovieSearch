@@ -163,6 +163,8 @@ private extension LogInViewController {
                     self?.saveAppUserToRealm(appUser)
                 }
                 
+                self?.downloadFavoriteFilms()
+                
                 DispatchQueue.main.async {
                     self?.navigateToMainScreens()
                 }
@@ -170,6 +172,31 @@ private extension LogInViewController {
         }
     }
     
+    
+    func downloadFavoriteFilms() {
+        guard let safeCurrentUserId = Auth.auth().currentUser?.uid else { return }
+        
+        Firestore.firestore().collection(safeCurrentUserId + K.FStore.favoriteFilms).getDocuments {
+            [weak self] (querySnapshot, error) in
+            if let safeError = error {
+                print("Error load favorite films: \(safeError)")
+            } else {
+                guard let documents = querySnapshot?.documents else { return }
+                
+                for document in documents {
+                    do {
+                        let filmData = try document.data(as: FilmData.self)
+                        self?.saveFavoriteFilmDataToRealm(FilmDataRealmObject(data: filmData))
+                    }
+                    catch {
+                        print("Retrieving FilmData from Firestore was failed")
+                        continue
+                    }
+                }
+            }
+        }
+    }
+        
     //MARK: -- realm methods
     func saveAppUserToRealm(_ appUser: AppUser) {
         do {
@@ -180,6 +207,18 @@ private extension LogInViewController {
             print("Error with appUser saving, \(error)")
         }
     }
+    
+    func saveFavoriteFilmDataToRealm(_ film: FilmDataRealmObject) {
+        do {
+            try realm.write {
+                realm.add(film, update: .modified)
+            }
+        } catch {
+            print("Error with appUser saving, \(error)")
+        }
+    }
+    
+    
     
     //MARK: -- others
     func activateScreenWaitingMode() {
