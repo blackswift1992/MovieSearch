@@ -67,9 +67,9 @@ extension FilmTableViewCell {
 
 //MARK: - @IBActions
 
-
+//starTapped
 private extension FilmTableViewCell {
-    @IBAction func starTapped(_ sender: UIButton) {
+    @IBAction func heartTapped(_ sender: UIButton) {
         if let safeFilmData = filmData {
             if !checkIsFavorite(filmId: safeFilmData.trackId) {
                 let image = UIImage(systemName: "heart.fill")

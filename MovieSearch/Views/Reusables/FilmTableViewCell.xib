@@ -108,7 +108,7 @@
                                                     <color key="baseForegroundColor" name="BrandDarkMint"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="starTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ASh-Vs-ipl"/>
+                                                    <action selector="heartTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ASh-Vs-ipl"/>
                                                 </connections>
                                             </button>
                                         </subviews>
