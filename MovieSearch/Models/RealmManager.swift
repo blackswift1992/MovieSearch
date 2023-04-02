@@ -18,6 +18,26 @@ class RealmManager {
     weak var delegate: RealmManagerDelegate?
     
     
+    func saveAppUserToRealm(_ appUser: AppUserDataContainer) {
+        do {
+            try realm.write {
+                realm.add(appUser, update: .modified)
+            }
+        } catch {
+            print("Error with appUser saving to Realm, \(error)")
+        }
+    }
+    
+    func saveFavoriteFilmDataToRealm(_ film: FilmDataContainer) {
+        do {
+            try realm.write {
+                realm.add(film, update: .modified)
+            }
+        } catch {
+            print("Error with FilmDataContainer saving to Realm, \(error)")
+        }
+    }
+    
     func saveFilmDataContainerToRealm(_ data: FilmDataContainer) {
         do {
             try realm.write {
@@ -32,5 +52,7 @@ class RealmManager {
         let filmDataRealmobject = realm.objects(FilmDataContainer.self).filter("data.trackId == '\(filmId)'").first
         return filmDataRealmobject != nil
     }
+    
+    
 }
 

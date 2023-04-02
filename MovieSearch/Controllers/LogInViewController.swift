@@ -9,7 +9,6 @@ import UIKit
 import FirebaseStorage
 import FirebaseAuth
 import FirebaseFirestore
-import RealmSwift
 
 class LogInViewController: UIViewController {
     @IBOutlet private weak var errorLabel: UILabel!
@@ -20,7 +19,7 @@ class LogInViewController: UIViewController {
     @IBOutlet private weak var progressIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var logInButton: UIButton!
     
-    private let realm = try! Realm()
+    private let realmManager = RealmManager()
     
     private var appUser: AppUserDataContainer?
     private var errorMessage: String?
@@ -142,7 +141,7 @@ private extension LogInViewController {
                 }
 
                 safeAppUser.avatar = safeAvatarData
-                self?.saveAppUserToRealm(safeAppUser)
+                self?.realmManager.saveAppUserToRealm(safeAppUser)
 
                 self?.downloadFavoriteFilms()
             }
@@ -163,7 +162,7 @@ private extension LogInViewController {
                 for document in documents {
                     do {
                         let filmData = try document.data(as: FilmData.self)
-                        self?.saveFavoriteFilmDataToRealm(FilmDataContainer(data: filmData))
+                        self?.realmManager.saveFavoriteFilmDataToRealm(FilmDataContainer(data: filmData))
                     }
                     catch {
                         print("Casting from QueryDocumentSnapshot to FilmData was failed")
@@ -177,28 +176,7 @@ private extension LogInViewController {
             }
         }
     }
-        
-    //MARK: -- realm methods
-    func saveAppUserToRealm(_ appUser: AppUserDataContainer) {
-        do {
-            try realm.write {
-                realm.add(appUser, update: .modified)
-            }
-        } catch {
-            print("Error with appUser saving to Realm, \(error)")
-        }
-    }
-    
-    func saveFavoriteFilmDataToRealm(_ film: FilmDataContainer) {
-        do {
-            try realm.write {
-                realm.add(film, update: .modified)
-            }
-        } catch {
-            print("Error with FilmDataContainer saving to Realm, \(error)")
-        }
-    }
-    
+
     //MARK: -- others
     func activateScreenWaitingMode() {
         errorLabel.text = K.Case.emptyString
