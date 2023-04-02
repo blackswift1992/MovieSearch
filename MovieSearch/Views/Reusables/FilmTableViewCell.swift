@@ -26,7 +26,6 @@ class FilmTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        realmManager.delegate = self
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -37,16 +36,6 @@ class FilmTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         let image = UIImage.heart
         heartButton.setImage(image, for: .normal)
-    }
-}
-
-
-//MARK: - RealmManagerDelegate
-
-
-extension FilmTableViewCell: RealmManagerDelegate {
-    func getSaveDataError(_ manager: RealmManager, errorMessage: String) {
-        failedToFilmDataAddingToRealm(withMessage: errorMessage)
     }
 }
 
@@ -104,19 +93,25 @@ private extension FilmTableViewCell {
                     if let safeError = error {
                         print(safeError)
                     } else {
-                        self?.realmManager.saveFilmDataContainerToRealm(FilmDataContainer(data: filmData))
+                        if let safeSelf = self {
+                            let isSuccessResult = safeSelf.realmManager.saveFilmDataContainerToRealm(FilmDataContainer(data: filmData))
+                            
+                            if !isSuccessResult {
+                                safeSelf.setDefaultImageToHeartButton()
+                            }
+                        }
+                        
+                       
                     }
                 }
             }
         } catch let error {
-            failedToFilmDataAddingToRealm(withMessage: error.localizedDescription)
+            print("Error with favorite film data saving to Firestore, \(error)")
         }
     }
 
-    func failedToFilmDataAddingToRealm(withMessage message: String) {
+    func setDefaultImageToHeartButton() {
         let image = UIImage.heart
         heartButton.setImage(image, for: .normal)
-        
-        print("Error with favorite film data saving to Realm, \(message)")
     }
 }

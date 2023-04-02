@@ -8,22 +8,31 @@
 import UIKit
 import RealmSwift
 
-protocol RealmManagerDelegate: AnyObject {
-    func getSaveDataError(_ manager: RealmManager, errorMessage: String)
-}
-
 class RealmManager {
-    private let realm = try! Realm()
-    
-    weak var delegate: RealmManagerDelegate?
+    static private let realm = try! Realm()
     
     private var favoriteFilms: Results<FilmDataContainer>?
+}
+
+
+//MARK: - Public methods
+
+
+extension RealmManager {
+    func fetchFavoriteFilmsFromRealm() -> [FilmDataContainer]? {
+        var result: [FilmDataContainer]?
+        result = Array(RealmManager.realm.objects(FilmDataContainer.self))
+        return result
+    }
     
+    func fetchAppUserFromRealm() -> AppUserDataContainer? {
+        return RealmManager.realm.object(ofType: AppUserDataContainer.self, forPrimaryKey: 1)
+    }
     
     func saveAppUserToRealm(_ appUser: AppUserDataContainer) {
         do {
-            try realm.write {
-                realm.add(appUser, update: .modified)
+            try RealmManager.realm.write {
+                RealmManager.realm.add(appUser, update: .modified)
             }
         } catch {
             print("Error with AppUserDataContainer saving to Realm, \(error)")
@@ -32,43 +41,36 @@ class RealmManager {
     
     func saveFavoriteFilmDataToRealm(_ film: FilmDataContainer) {
         do {
-            try realm.write {
-                realm.add(film, update: .modified)
+            try RealmManager.realm.write {
+                RealmManager.realm.add(film, update: .modified)
             }
         } catch {
             print("Error with FilmDataContainer saving to Realm, \(error)")
         }
     }
     
-    func saveFilmDataContainerToRealm(_ data: FilmDataContainer) {
+    func saveFilmDataContainerToRealm(_ data: FilmDataContainer) -> Bool {
         do {
-            try realm.write {
-                realm.add(data, update: .modified)
+            try RealmManager.realm.write {
+                RealmManager.realm.add(data, update: .modified)
             }
         } catch {
-            delegate?.getSaveDataError(self, errorMessage: error.localizedDescription)
+            print("Error with favorite film data saving to Realm, \(error)")
+            return false
         }
-    }
-    
-    func fetchFavoriteFilmsFromRealm() -> [FilmDataContainer]? {
-        var result: [FilmDataContainer]?
-        result = Array(realm.objects(FilmDataContainer.self))
-        return result
-    }
-    
-    func fetchAppUserFromRealm() -> AppUserDataContainer? {
-        return realm.object(ofType: AppUserDataContainer.self, forPrimaryKey: 1)
+        
+        return true
     }
     
     func checkIsFavorite(filmId: String) -> Bool {
-        let filmDataRealmobject = realm.objects(FilmDataContainer.self).filter("data.trackId == '\(filmId)'").first
+        let filmDataRealmobject = RealmManager.realm.objects(FilmDataContainer.self).filter("data.trackId == '\(filmId)'").first
         return filmDataRealmobject != nil
     }
     
     func deleteAllInRealm() {
         do {
-            try realm.write {
-                realm.deleteAll()
+            try RealmManager.realm.write {
+                RealmManager.realm.deleteAll()
             }
         } catch {
             print("Error with all data deleting, \(error)")
