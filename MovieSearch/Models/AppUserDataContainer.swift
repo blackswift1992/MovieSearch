@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-class AppUser: Object {
+class AppUserDataContainer: Object {
     @Persisted(primaryKey: true) var id = 1
 
     @Persisted var data: AppUserData?

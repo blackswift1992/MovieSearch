@@ -1,5 +1,5 @@
 //
-//  FilmDataRealmObject.swift
+//  FilmDataContainer.swift
 //  MovieSearch
 //
 //  Created by Олексій Мороз on 01.04.2023.
@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class FilmDataRealmObject: Object {
+class FilmDataContainer: Object {
     @Persisted(primaryKey: true) var _id: String
     
     @Persisted var data: FilmData?

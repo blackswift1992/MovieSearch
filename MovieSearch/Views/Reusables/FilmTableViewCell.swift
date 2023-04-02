@@ -95,7 +95,7 @@ private extension FilmTableViewCell {
                     if let safeError = error {
                         print(safeError)
                     } else {
-                        self?.saveFilmDataToRealm(FilmDataRealmObject(data: filmData))
+                        self?.saveFilmDataToRealm(FilmDataContainer(data: filmData))
                     }
                 }
             }
@@ -107,7 +107,7 @@ private extension FilmTableViewCell {
         }
     }
     
-    func saveFilmDataToRealm(_ data: FilmDataRealmObject) {
+    func saveFilmDataToRealm(_ data: FilmDataContainer) {
         do {
             try realm.write {
                 realm.add(data, update: .modified)
@@ -121,7 +121,7 @@ private extension FilmTableViewCell {
     }
     
     func checkIsFavorite(filmId: String) -> Bool {
-        let filmDataRealmobject = realm.objects(FilmDataRealmObject.self).filter("data.trackId == '\(filmId)'").first
+        let filmDataRealmobject = realm.objects(FilmDataContainer.self).filter("data.trackId == '\(filmId)'").first
         return filmDataRealmobject != nil
     }
 }

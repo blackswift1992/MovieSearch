@@ -15,7 +15,7 @@
 		490BD94529D2791B001C21EB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BD94429D2791B001C21EB /* SignUpViewController.swift */; };
 		490BD94729D27CB1001C21EB /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BD94629D27CB1001C21EB /* LogInViewController.swift */; };
 		490BD94929D27F12001C21EB /* AppUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BD94829D27F12001C21EB /* AppUserData.swift */; };
-		490BD94B29D27F34001C21EB /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BD94A29D27F34001C21EB /* AppUser.swift */; };
+		490BD94B29D27F34001C21EB /* AppUserDataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BD94A29D27F34001C21EB /* AppUserDataContainer.swift */; };
 		490BD94E29D2818C001C21EB /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BD94D29D2818C001C21EB /* UIImage.swift */; };
 		490BD95029D2886F001C21EB /* NewUserDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BD94F29D2886F001C21EB /* NewUserDataViewController.swift */; };
 		490BD95229D288B7001C21EB /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BD95129D288B7001C21EB /* String.swift */; };
@@ -28,7 +28,7 @@
 		492BC27029D2062900693157 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 492BC26F29D2062900693157 /* Assets.xcassets */; };
 		492BC27329D2062900693157 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 492BC27129D2062900693157 /* LaunchScreen.storyboard */; };
 		4938993C29D808EB00B4BF43 /* FavoriteFilmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4938993B29D808EB00B4BF43 /* FavoriteFilmsViewController.swift */; };
-		4938993E29D82C5F00B4BF43 /* FilmDataRealmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4938993D29D82C5F00B4BF43 /* FilmDataRealmObject.swift */; };
+		4938993E29D82C5F00B4BF43 /* FilmDataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4938993D29D82C5F00B4BF43 /* FilmDataContainer.swift */; };
 		49432F6C29D5D48700E96D8A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49432F6B29D5D48700E96D8A /* MainViewController.swift */; };
 		49AA6E4F29D733D700F134CC /* ITunesDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AA6E4E29D733D700F134CC /* ITunesDataProvider.swift */; };
 		49DD1BAD29D6632B00C9E6DA /* FilmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DD1BAC29D6632B00C9E6DA /* FilmData.swift */; };
@@ -46,7 +46,7 @@
 		490BD94429D2791B001C21EB /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		490BD94629D27CB1001C21EB /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		490BD94829D27F12001C21EB /* AppUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUserData.swift; sourceTree = "<group>"; };
-		490BD94A29D27F34001C21EB /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
+		490BD94A29D27F34001C21EB /* AppUserDataContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUserDataContainer.swift; sourceTree = "<group>"; };
 		490BD94D29D2818C001C21EB /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		490BD94F29D2886F001C21EB /* NewUserDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserDataViewController.swift; sourceTree = "<group>"; };
 		490BD95129D288B7001C21EB /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -61,7 +61,7 @@
 		492BC27229D2062900693157 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		492BC27429D2062900693157 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4938993B29D808EB00B4BF43 /* FavoriteFilmsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteFilmsViewController.swift; sourceTree = "<group>"; };
-		4938993D29D82C5F00B4BF43 /* FilmDataRealmObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmDataRealmObject.swift; sourceTree = "<group>"; };
+		4938993D29D82C5F00B4BF43 /* FilmDataContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmDataContainer.swift; sourceTree = "<group>"; };
 		49432F6B29D5D48700E96D8A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		49AA6E4E29D733D700F134CC /* ITunesDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesDataProvider.swift; sourceTree = "<group>"; };
 		49DD1BAC29D6632B00C9E6DA /* FilmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmData.swift; sourceTree = "<group>"; };
@@ -144,9 +144,9 @@
 			isa = PBXGroup;
 			children = (
 				490BD94829D27F12001C21EB /* AppUserData.swift */,
-				490BD94A29D27F34001C21EB /* AppUser.swift */,
+				490BD94A29D27F34001C21EB /* AppUserDataContainer.swift */,
 				49DD1BAC29D6632B00C9E6DA /* FilmData.swift */,
-				4938993D29D82C5F00B4BF43 /* FilmDataRealmObject.swift */,
+				4938993D29D82C5F00B4BF43 /* FilmDataContainer.swift */,
 				49AA6E4E29D733D700F134CC /* ITunesDataProvider.swift */,
 			);
 			path = Models;
@@ -319,7 +319,7 @@
 				490BD94329D27590001C21EB /* Constants.swift in Sources */,
 				4913354129D3962B0079F324 /* ProfileViewController.swift in Sources */,
 				49DD1BAD29D6632B00C9E6DA /* FilmData.swift in Sources */,
-				490BD94B29D27F34001C21EB /* AppUser.swift in Sources */,
+				490BD94B29D27F34001C21EB /* AppUserDataContainer.swift in Sources */,
 				490BD95229D288B7001C21EB /* String.swift in Sources */,
 				490BD94729D27CB1001C21EB /* LogInViewController.swift in Sources */,
 				49432F6C29D5D48700E96D8A /* MainViewController.swift in Sources */,
@@ -331,7 +331,7 @@
 				49AA6E4F29D733D700F134CC /* ITunesDataProvider.swift in Sources */,
 				492BC26729D2062700693157 /* AppDelegate.swift in Sources */,
 				490BD94929D27F12001C21EB /* AppUserData.swift in Sources */,
-				4938993E29D82C5F00B4BF43 /* FilmDataRealmObject.swift in Sources */,
+				4938993E29D82C5F00B4BF43 /* FilmDataContainer.swift in Sources */,
 				492BC26929D2062700693157 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

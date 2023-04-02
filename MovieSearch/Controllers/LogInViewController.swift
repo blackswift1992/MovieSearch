@@ -22,7 +22,7 @@ class LogInViewController: UIViewController {
     
     private let realm = try! Realm()
     
-    private var appUser: AppUser?
+    private var appUser: AppUserDataContainer?
     private var errorMessage: String?
     
     override func viewDidLoad() {
@@ -91,7 +91,7 @@ private extension LogInViewController {
                     let chatUserData = try document.data(as: AppUserData.self)
                     
                     let defaultAvatarData = UIImage.defaultAvatar?.pngData()
-                    self?.appUser = AppUser(data: chatUserData, avatar: defaultAvatarData)
+                    self?.appUser = AppUserDataContainer(data: chatUserData, avatar: defaultAvatarData)
                     
                     self?.downloadAvatar(with: chatUserData.avatarURL)
                 }
@@ -112,7 +112,7 @@ private extension LogInViewController {
                 
                 let defaultAvatarData = UIImage.defaultAvatar?.pngData()
 
-                let defaultAppUser = AppUser(data: appUserDefaultData, avatar: defaultAvatarData)
+                let defaultAppUser = AppUserDataContainer(data: appUserDefaultData, avatar: defaultAvatarData)
                 
                 self?.appUser = defaultAppUser
 
@@ -177,7 +177,7 @@ private extension LogInViewController {
                 for document in documents {
                     do {
                         let filmData = try document.data(as: FilmData.self)
-                        self?.saveFavoriteFilmDataToRealm(FilmDataRealmObject(data: filmData))
+                        self?.saveFavoriteFilmDataToRealm(FilmDataContainer(data: filmData))
                     }
                     catch {
                         print("Retrieving FilmData from Firestore was failed")
@@ -193,7 +193,7 @@ private extension LogInViewController {
     }
         
     //MARK: -- realm methods
-    func saveAppUserToRealm(_ appUser: AppUser) {
+    func saveAppUserToRealm(_ appUser: AppUserDataContainer) {
         do {
             try realm.write {
                 realm.add(appUser, update: .modified)
@@ -203,7 +203,7 @@ private extension LogInViewController {
         }
     }
     
-    func saveFavoriteFilmDataToRealm(_ film: FilmDataRealmObject) {
+    func saveFavoriteFilmDataToRealm(_ film: FilmDataContainer) {
         do {
             try realm.write {
                 realm.add(film, update: .modified)

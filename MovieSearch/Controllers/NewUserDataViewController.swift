@@ -25,7 +25,7 @@ class NewUserDataViewController: UIViewController {
     
     private let realm = try! Realm()
     
-    private var appUser: AppUser?
+    private var appUser: AppUserDataContainer?
     private var errorMessage: String?
     
     override func viewDidLoad() {
@@ -44,7 +44,7 @@ class NewUserDataViewController: UIViewController {
 
 
 extension NewUserDataViewController {
-    func setAppUser(_ appUser: AppUser?, errorMessage: String?) {
+    func setAppUser(_ appUser: AppUserDataContainer?, errorMessage: String?) {
         self.appUser = appUser
         self.errorMessage = errorMessage
     }
@@ -131,7 +131,7 @@ private extension NewUserDataViewController {
                 
                 let appUserData = AppUserData(userId: safeUserId, userEmail: safeUserEmail, firstName: safeFirstName, lastName: safeLastName, avatarURL: safeURL.absoluteString)
                 
-                self?.appUser = AppUser(data: appUserData, avatar: safeAvatarData)
+                self?.appUser = AppUserDataContainer(data: appUserData, avatar: safeAvatarData)
                 
                 self?.uploadData(appUserData)
             }
@@ -166,7 +166,7 @@ private extension NewUserDataViewController {
     }
     
     //MARK: -- realm methods
-    func saveAppUserToRealm(_ appUser: AppUser) {
+    func saveAppUserToRealm(_ appUser: AppUserDataContainer) {
         do {
             try realm.write {
                 realm.add(appUser, update: .modified)

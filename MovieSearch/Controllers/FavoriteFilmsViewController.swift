@@ -11,7 +11,7 @@ import RealmSwift
 class FavoriteFilmsViewController: UITableViewController {
     private let realm = try! Realm()
     
-    private var favoriteFilms: Results<FilmDataRealmObject>?
+    private var favoriteFilms: Results<FilmDataContainer>?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +55,7 @@ class FavoriteFilmsViewController: UITableViewController {
 
 private extension FavoriteFilmsViewController {
     func fetchFavoriteFilmsFromRealm() {
-        favoriteFilms = realm.objects(FilmDataRealmObject.self)
+        favoriteFilms = realm.objects(FilmDataContainer.self)
     }
 }
 

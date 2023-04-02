@@ -20,7 +20,7 @@ class ProfileViewController: UIViewController {
     
     private let realm = try! Realm()
     
-    private var appUser: AppUser?
+    private var appUser: AppUserDataContainer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,7 +70,7 @@ private extension ProfileViewController {
     }
     
     func loadAppUserFromRealm() {
-        appUser = realm.object(ofType: AppUser.self, forPrimaryKey: 1)
+        appUser = realm.object(ofType: AppUserDataContainer.self, forPrimaryKey: 1)
     }
 }
 
