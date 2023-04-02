@@ -17,6 +17,8 @@ class RealmManager {
     
     weak var delegate: RealmManagerDelegate?
     
+    private var favoriteFilms: Results<FilmDataContainer>?
+    
     
     func saveAppUserToRealm(_ appUser: AppUserDataContainer) {
         do {
@@ -46,6 +48,12 @@ class RealmManager {
         } catch {
             delegate?.getSaveDataError(self, errorMessage: error.localizedDescription)
         }
+    }
+    
+    func fetchFavoriteFilmsFromRealm() -> [FilmDataContainer]? {
+        var result: [FilmDataContainer]?
+        result = Array(realm.objects(FilmDataContainer.self))
+        return result
     }
     
     func checkIsFavorite(filmId: String) -> Bool {

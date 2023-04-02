@@ -6,20 +6,19 @@
 //
 
 import UIKit
-import RealmSwift
 
 class FavoriteFilmsViewController: UITableViewController {
-    private let realm = try! Realm()
+    private let realmManager = RealmManager()
     
-    private var favoriteFilms: Results<FilmDataContainer>?
-
+    private var favoriteFilms: [FilmDataContainer]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         registerTableViewNibs()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        fetchFavoriteFilmsFromRealm()
+        favoriteFilms = realmManager.fetchFavoriteFilmsFromRealm()
         tableView.reloadData()
     }
 
@@ -44,16 +43,6 @@ class FavoriteFilmsViewController: UITableViewController {
     // MARK: -- table view delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-}
-
-
-//MARK: - Private methods
-
-
-private extension FavoriteFilmsViewController {
-    func fetchFavoriteFilmsFromRealm() {
-        favoriteFilms = realm.objects(FilmDataContainer.self)
     }
 }
 
