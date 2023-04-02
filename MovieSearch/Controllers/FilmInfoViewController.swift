@@ -48,7 +48,8 @@ extension FilmInfoViewController {
 private extension FilmInfoViewController {
     @IBAction func shareButtonPressed(_ sender: UIButton) {
         if let safeFilmData = filmData {
-            let items : [Any] = [safeFilmData.trackCensoredName]
+            let items : [Any] = ["https://itunes.apple.com/search?term=\(safeFilmData.trackCensoredName.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil))&entity=movie&media=movie&attribute=movieTerm&limit=1"]
+            
             let avc = UIActivityViewController(activityItems: items, applicationActivities: nil)
             self.present(avc, animated: true)
         }
