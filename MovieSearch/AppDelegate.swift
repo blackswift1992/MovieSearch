@@ -14,8 +14,6 @@ import FirebaseAuth
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//        UITabBar.appearance().unselectedItemTintColor = .red
-        
         do {
             let _ = try Realm()
         } catch {
@@ -25,12 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         Firestore.firestore()
         
-        let tabBarApperance = UITabBarAppearance()
-        tabBarApperance.configureWithOpaqueBackground()
-        tabBarApperance.backgroundColor = UIColor.brandGray6
-        UITabBar.appearance().scrollEdgeAppearance = tabBarApperance
-        UITabBar.appearance().standardAppearance = tabBarApperance
-        
+        setupAppearance()
+
         return true
     }
 
@@ -47,7 +41,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
-
 }
 
+
+//MARK: - Set up methods
+
+
+private extension AppDelegate {
+    func setupAppearance() {
+        let tabBarApperance = UITabBarAppearance()
+        tabBarApperance.configureWithOpaqueBackground()
+        tabBarApperance.backgroundColor = UIColor.brandGray6
+        UITabBar.appearance().scrollEdgeAppearance = tabBarApperance
+        UITabBar.appearance().standardAppearance = tabBarApperance
+    }
+}
