@@ -22,6 +22,7 @@ class ProfileViewController: UIViewController {
     
     private var appUser: AppUserDataContainer?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadAppUserFromRealm()
@@ -58,7 +59,7 @@ private extension ProfileViewController {
     func deleteAllAppUsersInRealm() {
         do {
             try realm.write {
-                realm.deleteAll()   //розкоментувати
+                realm.deleteAll()
             }
         } catch {
             print("Error with appUser saving, \(error)")
