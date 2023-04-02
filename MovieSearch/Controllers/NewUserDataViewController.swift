@@ -28,6 +28,7 @@ class NewUserDataViewController: UIViewController {
     private var appUser: AppUserDataContainer?
     private var errorMessage: String?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         customizeViewElements()
@@ -133,21 +134,19 @@ private extension NewUserDataViewController {
                 
                 self?.appUser = AppUserDataContainer(data: appUserData, avatar: safeAvatarData)
                 
-                self?.uploadData(appUserData)
+                self?.uploadAppUserData(appUserData)
             }
         }
     }
     
     //MARK: -- data uploading
-    func uploadData(_ appUserData: AppUserData) {
+    func uploadAppUserData(_ appUserData: AppUserData) {
         do {
             try Firestore.firestore().collection(K.FStore.usersCollection).document(appUserData.userId).setData(from: appUserData) { [weak self] error in
                 DispatchQueue.main.async {
                     if error != nil {
                         self?.failedWithErrorMessage("Try again")
                     } else {
-                        //На цьому етапі дані юзера і його аватарка завантажені в Firebase
-                        //І тут потрібно перед переходом до MainScreens зберегти об'єкт appUser в Realm, щоб потім вже знаходячись в вкладці Профіль витягнути дані і аватар юзера з Realm-a і відобразити на екрані.
                         if let appUser = self?.appUser {
                             self?.saveAppUserToRealm(appUser)
                         }
@@ -157,7 +156,7 @@ private extension NewUserDataViewController {
                 }
             }
         } catch let error {
-            print("Error writing city to Firestore: \(error)")
+            print("Error writing AppUserData to Firestore: \(error)")
             
             DispatchQueue.main.async {
                 self.failedWithErrorMessage("Try again")
@@ -172,7 +171,7 @@ private extension NewUserDataViewController {
                 realm.add(appUser, update: .modified)
             }
         } catch {
-            print("Error with appUser saving, \(error)")
+            print("Error with AppUserDataContainer saving to Realm, \(error)")
         }
     }
     
