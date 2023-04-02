@@ -18,6 +18,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet private weak var progressIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var signUpButton: UIButton!
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         customizeViewElements()

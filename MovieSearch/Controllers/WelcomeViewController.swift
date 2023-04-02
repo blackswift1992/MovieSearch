@@ -13,6 +13,7 @@ class WelcomeViewController: UIViewController {
     @IBOutlet private weak var logInButton: UIButton!
     @IBOutlet private weak var registerButton: UIButton!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         customizeViewElements()

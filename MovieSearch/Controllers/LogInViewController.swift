@@ -25,6 +25,7 @@ class LogInViewController: UIViewController {
     private var appUser: AppUserDataContainer?
     private var errorMessage: String?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         customizeViewElements()
@@ -103,20 +104,13 @@ private extension LogInViewController {
                 }
             } else {
                 self?.errorMessage = "Your user data doesn't exist. Set it please."
-                
-                //Юзер залогінився, але його дані не існують
-                //Юзера перекидують в NewUserDataViewController де зобов'язують юзера вказати необхідні дані. На цьому етапі при переході в NewUserDataViewController в якості об'єкта appSender-а передається nil
-                //Хоча щоб не порушувати логіку, краще передати об'єкт appSender тільки з всіма дефолтними даними
-                //Тут в майбутньому треба перевірити чи може краще передати nil?
-                let appUserDefaultData = AppUserData(userId: K.Case.emptyString, userEmail: K.Case.emptyString, firstName: K.Case.emptyString, lastName: K.Case.emptyString, avatarURL: K.Case.emptyString)
-                
-                let defaultAvatarData = UIImage.defaultAvatar?.pngData()
 
+                let appUserDefaultData = AppUserData(userId: K.Case.emptyString, userEmail: K.Case.emptyString, firstName: K.Case.emptyString, lastName: K.Case.emptyString, avatarURL: K.Case.emptyString)
+                let defaultAvatarData = UIImage.defaultAvatar?.pngData()
                 let defaultAppUser = AppUserDataContainer(data: appUserDefaultData, avatar: defaultAvatarData)
                 
                 self?.appUser = defaultAppUser
 
-                
                 DispatchQueue.main.async {
                     self?.navigateToNewUserData()
                 }
@@ -135,29 +129,21 @@ private extension LogInViewController {
                 
                 self?.errorMessage = "Your avatar does not exist. Set it or click \"Continue\" to leave the default one."
                 
-                //На цьому етапі система визначила що у юзера є його дані АЛЕ НЕМАЄ АВАТАРКИ
-                //Дані юзера і ДЕФОЛТНА АВАТАРКА записані в об'єкт appUser
-                //Далі робиться переход в NewUserDataViewController і при переході передається об'єкт appUser, який вже буде оброблятися в самому NewUserDataViewController-і
                 DispatchQueue.main.async {
                     self?.navigateToNewUserData()
                 }
             } else {
-                guard let safeAvatarData = data else {
+                guard let safeAvatarData = data,
+                      let safeAppUser = self?.appUser else {
                     DispatchQueue.main.async {
                         self?.failedToLogIn(withMessage: "Try again")
                     }
                     return
                 }
-                
-                //На цьому етапі система визначила що у юзера є і його дані і його аватарка
-                //Дані і аватарка юзера записані в об'єкт chatSender
-                //І тут потрібно перед перeходом до MainScreens зберегти об'єкт appUser в Realm, щоб потім вже знаходячись в вкладці Профіль витягнути дані і аватар юзера з Realm-a і відобразити на екрані.
-                self?.appUser?.avatar = safeAvatarData
-                
-                if let appUser = self?.appUser {
-                    self?.saveAppUserToRealm(appUser)
-                }
-                
+
+                safeAppUser.avatar = safeAvatarData
+                self?.saveAppUserToRealm(safeAppUser)
+
                 self?.downloadFavoriteFilms()
             }
         }
@@ -180,7 +166,7 @@ private extension LogInViewController {
                         self?.saveFavoriteFilmDataToRealm(FilmDataContainer(data: filmData))
                     }
                     catch {
-                        print("Retrieving FilmData from Firestore was failed")
+                        print("Casting from QueryDocumentSnapshot to FilmData was failed")
                         continue
                     }
                 }
@@ -199,7 +185,7 @@ private extension LogInViewController {
                 realm.add(appUser, update: .modified)
             }
         } catch {
-            print("Error with appUser saving, \(error)")
+            print("Error with appUser saving to Realm, \(error)")
         }
     }
     
@@ -209,11 +195,9 @@ private extension LogInViewController {
                 realm.add(film, update: .modified)
             }
         } catch {
-            print("Error with appUser saving, \(error)")
+            print("Error with FilmDataContainer saving to Realm, \(error)")
         }
     }
-    
-    
     
     //MARK: -- others
     func activateScreenWaitingMode() {
