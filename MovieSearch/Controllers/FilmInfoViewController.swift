@@ -18,6 +18,7 @@ class FilmInfoViewController: UIViewController {
     
     private var filmData: FilmData?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         customizeUIElements()
@@ -29,7 +30,9 @@ class FilmInfoViewController: UIViewController {
     }
 }
 
+
 //MARK: - Public methods
+
 
 extension FilmInfoViewController {
     func setFilmData(_ data: FilmData?) {

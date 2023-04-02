@@ -24,7 +24,6 @@ class FavoriteFilmsViewController: UITableViewController {
     }
 
     // MARK: -- table view data source
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return favoriteFilms?.count ?? 0
     }
@@ -33,17 +32,16 @@ class FavoriteFilmsViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.TableCell.filmNibIdentifier, for: indexPath)
         
         guard let filmCell = cell as? FilmTableViewCell,
-              let currentFilm = favoriteFilms?[indexPath.row].data
+              let film = favoriteFilms?[indexPath.row].data
         else { return UITableViewCell() }
         
-        filmCell.setFilmData(currentFilm)
-        filmCell.hideStarButton()
+        filmCell.setFilmData(film)
+        filmCell.hideHeartButton()
         
         return cell
     }
     
     // MARK: -- table view delegate
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }

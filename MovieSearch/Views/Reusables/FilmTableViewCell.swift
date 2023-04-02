@@ -58,7 +58,7 @@ extension FilmTableViewCell {
         }
     }
     
-    func hideStarButton() {
+    func hideHeartButton() {
         heartButtonView.isHidden = true
     }
 }
