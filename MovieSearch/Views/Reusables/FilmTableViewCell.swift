@@ -54,6 +54,12 @@ extension FilmTableViewCell {
         nameLabel.text = data.trackCensoredName
         yearLabel.text = String(data.releaseDate.prefix(4))
         genreLabel.text = data.primaryGenreName
+        
+
+        if checkIsFavorite(filmId: data.trackId) {
+            let image = UIImage(systemName: "heart.fill")
+            heartButton.setImage(image, for: .normal)
+        }
     }
     
     func hideStarButton() {
@@ -72,10 +78,6 @@ private extension FilmTableViewCell {
             let image = UIImage(systemName: "heart.fill")
             
             heartButton.setImage(image, for: .normal)
-            
-            print("qqqqqqq")
-            
-            
             
             //записати FilmData в Firebase i потім в Realm
             //для цього в FilmTableViewCell треба передавати цілий об'єкт FilmData
@@ -122,5 +124,10 @@ private extension FilmTableViewCell {
         } catch {
             print("Error with appUser saving, \(error)")
         }
+    }
+    
+    func checkIsFavorite(filmId: String) -> Bool {
+        let filmDataRealmobject = realm.objects(FilmDataRealmObject.self).filter("data.trackId == '\(filmId)'").first
+        return filmDataRealmobject != nil
     }
 }

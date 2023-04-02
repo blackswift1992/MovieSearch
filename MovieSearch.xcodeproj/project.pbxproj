@@ -146,8 +146,8 @@
 				490BD94829D27F12001C21EB /* AppUserData.swift */,
 				490BD94A29D27F34001C21EB /* AppUser.swift */,
 				49DD1BAC29D6632B00C9E6DA /* FilmData.swift */,
-				49AA6E4E29D733D700F134CC /* ITunesDataProvider.swift */,
 				4938993D29D82C5F00B4BF43 /* FilmDataRealmObject.swift */,
+				49AA6E4E29D733D700F134CC /* ITunesDataProvider.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
