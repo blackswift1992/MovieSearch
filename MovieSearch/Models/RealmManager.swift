@@ -24,7 +24,7 @@ class RealmManager {
                 realm.add(appUser, update: .modified)
             }
         } catch {
-            print("Error with appUser saving to Realm, \(error)")
+            print("Error with AppUserDataContainer saving to Realm, \(error)")
         }
     }
     

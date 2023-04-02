@@ -9,7 +9,6 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 import FirebaseStorage
-import RealmSwift
 
 class NewUserDataViewController: UIViewController {
     @IBOutlet private weak var errorLabel: UILabel!
@@ -23,7 +22,7 @@ class NewUserDataViewController: UIViewController {
     @IBOutlet private weak var progressIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var continueButton: UIButton!
     
-    private let realm = try! Realm()
+    private let realmManager = RealmManager()
     
     private var appUser: AppUserDataContainer?
     private var errorMessage: String?
@@ -148,7 +147,7 @@ private extension NewUserDataViewController {
                         self?.failedWithErrorMessage("Try again")
                     } else {
                         if let appUser = self?.appUser {
-                            self?.saveAppUserToRealm(appUser)
+                            self?.realmManager.saveAppUserToRealm(appUser)
                         }
 
                         self?.navigateToMainScreens()
@@ -161,17 +160,6 @@ private extension NewUserDataViewController {
             DispatchQueue.main.async {
                 self.failedWithErrorMessage("Try again")
             }
-        }
-    }
-    
-    //MARK: -- realm methods
-    func saveAppUserToRealm(_ appUser: AppUserDataContainer) {
-        do {
-            try realm.write {
-                realm.add(appUser, update: .modified)
-            }
-        } catch {
-            print("Error with AppUserDataContainer saving to Realm, \(error)")
         }
     }
     
