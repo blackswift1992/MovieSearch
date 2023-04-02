@@ -24,7 +24,6 @@ class FilmInfoViewController: UIViewController {
         customizeUIElements()
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = false
@@ -46,7 +45,7 @@ extension FilmInfoViewController {
 
 
 private extension FilmInfoViewController {
-    @IBAction func shareButtonPressed(_ sender: UIButton) {
+    @IBAction func shareButtonTapped(_ sender: UIBarButtonItem) {
         if let safeFilmData = filmData {
             let items : [Any] = ["https://itunes.apple.com/search?term=\(safeFilmData.trackCensoredName.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil))&entity=movie&media=movie&attribute=movieTerm&limit=1"]
             
