@@ -24,6 +24,7 @@ class FilmInfoViewController: UIViewController {
         customizeUIElements()
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = false
@@ -41,6 +42,18 @@ extension FilmInfoViewController {
 }
 
 
+//MARK: - @IBAction
+
+
+private extension FilmInfoViewController {
+    @IBAction func shareButtonPressed(_ sender: UIButton) {
+        if let safeFilmData = filmData {
+            let items : [Any] = [safeFilmData.trackCensoredName]
+            let avc = UIActivityViewController(activityItems: items, applicationActivities: nil)
+            self.present(avc, animated: true)
+        }
+    }
+}
 //MARK: - Set up methods
 
 
