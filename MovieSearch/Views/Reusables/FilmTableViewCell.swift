@@ -9,7 +9,6 @@ import UIKit
 import SDWebImage
 import FirebaseAuth
 import FirebaseFirestore
-import RealmSwift
 
 class FilmTableViewCell: UITableViewCell {
     @IBOutlet private weak var posterImageView: UIImageView!
@@ -20,13 +19,14 @@ class FilmTableViewCell: UITableViewCell {
     @IBOutlet private weak var heartButtonView: UIView!
     @IBOutlet private weak var heartButton: UIButton!
     
-    private let realm = try! Realm()
+    private let realmManager = RealmManager()
     
     private var filmData: FilmData?
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        realmManager.delegate = self
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -41,6 +41,16 @@ class FilmTableViewCell: UITableViewCell {
 }
 
 
+//MARK: - RealmManagerDelegate
+
+
+extension FilmTableViewCell: RealmManagerDelegate {
+    func getSaveDataError(_ manager: RealmManager, errorMessage: String) {
+        failedToFilmDataAddingToRealm(withMessage: errorMessage)
+    }
+}
+
+
 //MARK: - Public methods
 
 
@@ -51,8 +61,8 @@ extension FilmTableViewCell {
         nameLabel.text = data.trackCensoredName
         yearLabel.text = String(data.releaseDate.prefix(4))
         genreLabel.text = data.primaryGenreName
-        
-        if checkIsFavorite(filmId: data.trackId) {
+
+        if realmManager.checkIsFavorite(filmId: data.trackId) {
             let image = UIImage.heartFill
             heartButton.setImage(image, for: .normal)
         }
@@ -70,7 +80,7 @@ extension FilmTableViewCell {
 private extension FilmTableViewCell {
     @IBAction func heartTapped(_ sender: UIButton) {
         if let safeFilmData = filmData {
-            if !checkIsFavorite(filmId: safeFilmData.trackId) {
+            if !realmManager.checkIsFavorite(filmId: safeFilmData.trackId) {
                 let image = UIImage.heartFill
                 heartButton.setImage(image, for: .normal)
                 
@@ -94,7 +104,7 @@ private extension FilmTableViewCell {
                     if let safeError = error {
                         print(safeError)
                     } else {
-                        self?.saveFilmDataToRealm(FilmDataContainer(data: filmData))
+                        self?.realmManager.saveFilmDataContainerToRealm(FilmDataContainer(data: filmData))
                     }
                 }
             }
@@ -102,22 +112,7 @@ private extension FilmTableViewCell {
             failedToFilmDataAddingToRealm(withMessage: error.localizedDescription)
         }
     }
-    
-    func saveFilmDataToRealm(_ data: FilmDataContainer) {
-        do {
-            try realm.write {
-                realm.add(data, update: .modified)
-            }
-        } catch {
-            failedToFilmDataAddingToRealm(withMessage: error.localizedDescription)
-        }
-    }
-    
-    func checkIsFavorite(filmId: String) -> Bool {
-        let filmDataRealmobject = realm.objects(FilmDataContainer.self).filter("data.trackId == '\(filmId)'").first
-        return filmDataRealmobject != nil
-    }
-    
+
     func failedToFilmDataAddingToRealm(withMessage message: String) {
         let image = UIImage.heart
         heartButton.setImage(image, for: .normal)

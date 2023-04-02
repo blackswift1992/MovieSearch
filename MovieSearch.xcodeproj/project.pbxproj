@@ -30,6 +30,7 @@
 		4938993C29D808EB00B4BF43 /* FavoriteFilmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4938993B29D808EB00B4BF43 /* FavoriteFilmsViewController.swift */; };
 		4938993E29D82C5F00B4BF43 /* FilmDataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4938993D29D82C5F00B4BF43 /* FilmDataContainer.swift */; };
 		49432F6C29D5D48700E96D8A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49432F6B29D5D48700E96D8A /* MainViewController.swift */; };
+		494B05B429D9AC2200D11945 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B05B329D9AC2200D11945 /* RealmManager.swift */; };
 		49AA6E4F29D733D700F134CC /* ITunesDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AA6E4E29D733D700F134CC /* ITunesDataProvider.swift */; };
 		49DD1BAD29D6632B00C9E6DA /* FilmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DD1BAC29D6632B00C9E6DA /* FilmData.swift */; };
 		49FBBAF429D2417900BDDA62 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49FBBAF329D2417900BDDA62 /* Colors.xcassets */; };
@@ -63,6 +64,7 @@
 		4938993B29D808EB00B4BF43 /* FavoriteFilmsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteFilmsViewController.swift; sourceTree = "<group>"; };
 		4938993D29D82C5F00B4BF43 /* FilmDataContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmDataContainer.swift; sourceTree = "<group>"; };
 		49432F6B29D5D48700E96D8A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		494B05B329D9AC2200D11945 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		49AA6E4E29D733D700F134CC /* ITunesDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITunesDataProvider.swift; sourceTree = "<group>"; };
 		49DD1BAC29D6632B00C9E6DA /* FilmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmData.swift; sourceTree = "<group>"; };
 		49FBBAF329D2417900BDDA62 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				49DD1BAC29D6632B00C9E6DA /* FilmData.swift */,
 				4938993D29D82C5F00B4BF43 /* FilmDataContainer.swift */,
 				49AA6E4E29D733D700F134CC /* ITunesDataProvider.swift */,
+				494B05B329D9AC2200D11945 /* RealmManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				490BD94E29D2818C001C21EB /* UIImage.swift in Sources */,
 				490BD94329D27590001C21EB /* Constants.swift in Sources */,
 				4913354129D3962B0079F324 /* ProfileViewController.swift in Sources */,
+				494B05B429D9AC2200D11945 /* RealmManager.swift in Sources */,
 				49DD1BAD29D6632B00C9E6DA /* FilmData.swift in Sources */,
 				490BD94B29D27F34001C21EB /* AppUserDataContainer.swift in Sources */,
 				490BD95229D288B7001C21EB /* String.swift in Sources */,
