@@ -164,10 +164,6 @@ private extension LogInViewController {
                 }
                 
                 self?.downloadFavoriteFilms()
-                
-                DispatchQueue.main.async {
-                    self?.navigateToMainScreens()
-                }
             }
         }
     }
@@ -193,6 +189,10 @@ private extension LogInViewController {
                         continue
                     }
                 }
+            }
+            
+            DispatchQueue.main.async {
+                self?.navigateToMainScreens()
             }
         }
     }
