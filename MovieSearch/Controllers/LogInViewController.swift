@@ -28,6 +28,7 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         customizeViewElements()
+        realmManager.deleteAllInRealm()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

@@ -18,10 +18,12 @@ class SignUpViewController: UIViewController {
     @IBOutlet private weak var progressIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var signUpButton: UIButton!
 
+    private let realmManager = RealmManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         customizeViewElements()
+        realmManager.deleteAllInRealm()
     }
 }
 

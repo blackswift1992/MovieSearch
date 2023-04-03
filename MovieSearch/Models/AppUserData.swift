@@ -26,3 +26,4 @@ class AppUserData: Object, Codable {
         self.avatarURL = avatarURL
     }
 }
+
