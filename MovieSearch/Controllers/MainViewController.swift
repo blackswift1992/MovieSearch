@@ -67,6 +67,7 @@ class MainViewController: UITableViewController {
 //MARK: -- ITunesDataProviderDelegate
 extension MainViewController: ITunesDataProviderDelegate {
     func processFetchedFilmsData(_ provider: ITunesDataProvider, filmsData: [FilmData]) {
+        
         allFilms = filmsData
         tableView.reloadData()
     }
