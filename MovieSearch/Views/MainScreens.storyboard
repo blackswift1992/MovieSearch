@@ -170,7 +170,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b1J-4A-lx0">
                                                         <rect key="frame" x="0.0" y="0.0" width="197" height="50"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Фамілія:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rH-0A-nJD">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Прізвище:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rH-0A-nJD">
                                                                 <rect key="frame" x="0.0" y="0.0" width="192" height="50"/>
                                                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
                                                                 <color key="textColor" name="BrandMint"/>
@@ -580,11 +580,11 @@
             </objects>
             <point key="canvasLocation" x="2670" y="2977"/>
         </scene>
-        <!--Favorite-->
+        <!--Вибране-->
         <scene sceneID="sYC-mN-VXr">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kcj-0e-OcX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favorite" image="heart" catalog="system" id="0TB-TY-3ND"/>
+                    <tabBarItem key="tabBarItem" title="Вибране" image="heart" catalog="system" id="0TB-TY-3ND"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tYm-cZ-HJ1">
                         <rect key="frame" x="0.0" y="48" width="414" height="44"/>

@@ -51,7 +51,9 @@ extension ITunesDataProvider {
                     fetchedFilmsData.append(film)
                 }
                 
-                self?.delegate?.processFetchedFilmsData(safeSelf, filmsData: fetchedFilmsData)
+                DispatchQueue.main.async {
+                    self?.delegate?.processFetchedFilmsData(safeSelf, filmsData: fetchedFilmsData)
+                }
             case .failure(let error):
                 print(error)
             }
