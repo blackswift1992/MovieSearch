@@ -22,7 +22,6 @@ class MainViewController: UITableViewController {
         
         registerTableViewNibs()
         setUpSearchController()
-        requestInfo()
     }
     
     override func viewWillAppear(_ animated: Bool) {
