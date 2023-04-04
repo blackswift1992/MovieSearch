@@ -5,7 +5,7 @@ MovieSearch is an app that helps people to find films and save them in favorites
 UPD: I added a swipe to delete a favorite film cell (see screenshots below)
 
 # Video presentation on Youtube (click on the picture):
-[![IMAGE ALT TEXT HERE](https://user-images.githubusercontent.com/113255680/229408965-24f09176-7eef-4f28-ac2e-eac32b18a525.jpg)](https://www.youtube.com/watch?v=1iITCC0KxPk)
+[![IMAGE ALT TEXT HERE](https://user-images.githubusercontent.com/113255680/229408965-24f09176-7eef-4f28-ac2e-eac32b18a525.jpg)](https://www.youtube.com/watch?v=PMXxPlUs_ek)
 
 # Screenshots:
 
