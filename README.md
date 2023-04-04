@@ -44,3 +44,12 @@ MovieSearch is an app that helps people to find films and save them in favorites
 9)Also you can share film information to whoever you want.
 
 <img height="450" alt="Screenshot 2022-11-01 at 18 59 38 2" src="https://user-images.githubusercontent.com/113255680/229683783-50dec3ed-820c-4f66-88bc-920724a31cff.PNG"> <img height="450" alt="Screenshot 2022-11-01 at 18 59 38 2" src="https://user-images.githubusercontent.com/113255680/229683814-88d40a9d-6953-4689-811b-b66b3573b0a7.PNG"> 
+
+10)Favorite films can be deleted. Swipe a bit and tap delete button or just make long swipe.
+
+ <img height="450" alt="Screenshot 2022-11-01 at 18 59 38 2" src="https://user-images.githubusercontent.com/113255680/229743752-3f90b3f2-f839-4299-afc2-146e8036686c.PNG"> <img height="450" alt="Screenshot 2022-11-01 at 18 59 38 2" src="https://user-images.githubusercontent.com/113255680/229743555-5ff79bde-e598-49c9-92a0-330ab6c184d3.PNG">
+
+
+
+
+
