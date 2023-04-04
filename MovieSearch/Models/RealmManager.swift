@@ -19,10 +19,8 @@ class RealmManager {
 
 
 extension RealmManager {
-    func fetchFavoriteFilmsFromRealm() -> [FilmDataContainer]? {
-        var result: [FilmDataContainer]?
-        result = Array(RealmManager.realm.objects(FilmDataContainer.self))
-        return result
+    func fetchFavoriteFilmsFromRealm() -> Results<FilmDataContainer>? {
+        return RealmManager.realm.objects(FilmDataContainer.self)
     }
     
     func fetchAppUserFromRealm() -> AppUserDataContainer? {
@@ -65,6 +63,16 @@ extension RealmManager {
     func checkIsFavorite(filmId: String) -> Bool {
         let filmDataRealmobject = RealmManager.realm.objects(FilmDataContainer.self).filter("data.trackId == '\(filmId)'").first
         return filmDataRealmobject != nil
+    }
+    
+    func deleteFavoriteFilmFromRealm(_ film: FilmDataContainer) {
+        do {
+            try RealmManager.realm.write {
+                RealmManager.realm.delete(film)
+            }
+        } catch {
+            print("Error with favorite film deleting, \(error)")
+        }
     }
     
     func deleteAllInRealm() {

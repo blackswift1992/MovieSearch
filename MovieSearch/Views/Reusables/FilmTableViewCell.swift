@@ -9,8 +9,9 @@ import UIKit
 import SDWebImage
 import FirebaseAuth
 import FirebaseFirestore
+import SwipeCellKit
 
-class FilmTableViewCell: UITableViewCell {
+class FilmTableViewCell: SwipeTableViewCell {
     @IBOutlet private weak var posterImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var yearLabel: UILabel!
@@ -100,8 +101,6 @@ private extension FilmTableViewCell {
                                 safeSelf.setDefaultImageToHeartButton()
                             }
                         }
-                        
-                       
                     }
                 }
             }

@@ -24,6 +24,11 @@ class MainViewController: UITableViewController {
         setUpSearchController()
         requestInfo()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+        requestInfo()
+    }
 
     // MARK: -- table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

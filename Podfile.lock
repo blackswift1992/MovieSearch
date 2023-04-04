@@ -733,6 +733,7 @@ PODS:
     - SDWebImage/Core (= 5.15.5)
   - SDWebImage/Core (5.15.5)
   - SwiftyJSON (5.0.1)
+  - SwipeCellKit (2.7.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
@@ -744,6 +745,7 @@ DEPENDENCIES:
   - RealmSwift
   - SDWebImage
   - SwiftyJSON
+  - SwipeCellKit
 
 SPEC REPOS:
   trunk:
@@ -773,6 +775,7 @@ SPEC REPOS:
     - RealmSwift
     - SDWebImage
     - SwiftyJSON
+    - SwipeCellKit
 
 SPEC CHECKSUMS:
   abseil: ebe5b5529fb05d93a8bdb7951607be08b7fa71bc
@@ -801,7 +804,8 @@ SPEC CHECKSUMS:
   RealmSwift: 7c181da8fa1c2fe613656a77c198d6a3dc3879a1
   SDWebImage: fd7e1a22f00303e058058278639bf6196ee431fe
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
+  SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
 
-PODFILE CHECKSUM: 2628df393c3937b349d9935b15eb1205abdcade4
+PODFILE CHECKSUM: 77c18df14df584da51635201a470abf8ad93812d
 
 COCOAPODS: 1.11.3

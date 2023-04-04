@@ -15,6 +15,7 @@ target 'MovieSearch' do
   pod 'Alamofire', '~> 4.4'
   pod 'SwiftyJSON'
   pod 'SDWebImage'
+  pod 'SwipeCellKit'
 
   #fix Xcode 14.3 beta building bug
   post_install do |installer|
