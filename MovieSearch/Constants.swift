@@ -8,6 +8,15 @@
 struct K {
     static let appName = "MovieSearch🔎"
     
+    struct Storyboard {
+        static let mainEntrance = "MainEntrance"
+        static let mainScreens = "MainScreens"
+    }
+    
+    struct ViewController {
+        static let destinationNavigationController = "DestinationNavigationController"
+        static let tabBarViewController = "TabBarViewController"
+    }
     
     struct Segue {
         static let signUpToNewUserData = "SignUpToNewUserData"

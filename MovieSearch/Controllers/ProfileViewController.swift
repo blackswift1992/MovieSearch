@@ -56,7 +56,13 @@ private extension ProfileViewController {
     }
     
     func navigateToWelcome() {
-        navigationController?.popToRootViewController(animated: true)
+        guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else {
+            fatalError("could not get scene delegate ")
+        }
+        
+        let rootVC = UIStoryboard(name: K.Storyboard.mainEntrance, bundle: .main).instantiateViewController(withIdentifier: K.ViewController.destinationNavigationController)
+        
+        sceneDelegate.window?.rootViewController = rootVC
     }
     
     func loadAppUserFromRealm() {
